@@ -1,7 +1,7 @@
 .idea/
 _NONSITE/
 _include/img
-main.min.css
-main.min.js
+*.min.css
+*.min.js
 robots.txt
 Desktop.ini
