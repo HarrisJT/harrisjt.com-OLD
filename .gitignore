@@ -1,5 +1,6 @@
 .idea/
 _NONSITE/
+_include/img
 main.min.css
 main.min.js
 robots.txt

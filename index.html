@@ -4,29 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
 
-    <title>Harris Thompson | Web Designer and Developer &bull; Milwaukee, WI</title>
+    <title>Home &bull; Harris Thompson | Web Designer and Developer</title>
+
     <!--LOAD TODO: fonts, script should be async or defer?-->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="stylesheet" href="//fonts.googleapis.com/">
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="_include/css/main.min.css">
     <script type="text/javascript" src="_include/js/main.min.js" async></script>
+
 
     <!--TODO: TWITTER-->
     <!--TODO: FACEBOOK-->
 
-    <!--TODO: Favicon-->
+    <!--TODO: Favicon
     <link rel="shortcut icon" href="_include/fav.png">
     <link rel="apple-touch-icon-precomposed" href="_include/fav.png">
     <meta name="apple-mobile-web-app-title" content="HarrisJT">
-
+    -->
 
     <meta name="description"
           content="Web Designer and Developer in Milwaukee, Wisconsin. Although I specialize in front end web development, I design and develop anything digital including websites, interactives, advertisements, and software.">
-    <link rel="canonical" href="http://csswizardry.com/">
+    <link rel="canonical" href="https://harrisjt.com/">
 
 </head>
 <body>
+<main class="container">
+    <header class="mainheader">
+        <div class="mainheader__left">
+            <h1><a href="#" class="">Harris<span>Thompson</span></a></h1>
+            <h2>Web Developer</h2>
+        </div>
+        <div class="mainheader__right">
+            <a href="about/"><span>About</span></a>
+            <a href="#"><span>Writing</span></a>
+            <a href="contact/"><span>Contact</span></a>
+        </div>
+    </header>
+    <!-- Clearfix? -->
+    <section class="project-container" id="project-container">
+        <section class="project" id="section0">
+            <div class="project__info">
+                <h3 class="project__title">Lorem Ipsum</h3>
+                <a href="casestudy1/" class="project__view">View Case Study</a>
+            </div>
+            <div class="project__screenshot">
+                <img src="_include/img/casestudy1-overview-screenshot.png">
+            </div>
+            <div class="project__year">
+                2016
+            </div>
+        </section>
+        <section class="project" id="section1">
+            <div class="project__info">
+                <h3 class="project__title">Lorem Ipsum2</h3>
+                <a href="casestudy2/" class="project__view">View Case Study</a>
+            </div>
+            <div class="project__screenshot">
+                <img src="_include/img/casestudy1-overview-screenshot.png">
+            </div>
+            <div class="project__year">
+                2015
+            </div>
+        </section>
+        <section class="project" id="section2">
+            <div class="project__info">
+                <h3 class="project__title">Lorem Ipsum3</h3>
+                <a href="casestudy3/" class="project__view">View Case Study</a>
+            </div>
+            <div class="project__screenshot">
+                <img src="_include/img/casestudy1-overview-screenshot.png">
+            </div>
+            <div class="project__year">
+                2014
+            </div>
+        </section>
+        <section class="project" id="section3">
+            <div class="project__info">
+                <h3 class="project__title">Lorem Ipsum4</h3>
+                <a href="casestudy4/" class="project__view">View Case Study</a>
+            </div>
+            <div class="project__screenshot">
+                <img src="_include/img/casestudy1-overview-screenshot.png">
+            </div>
+            <div class="project__year">
+                2013
+            </div>
+        </section>
+        <div class="project-container__pagination">
+            <span class="project-container__previous-number"><a href="#">1</a></span>
+            <svg xmlns="http://www.w3.org/2000/svg" id="scroll-line" viewBox="0 0 1 635">
+                <style>
+                    #scroll-line__path {
+                        fill: #FFFFFF;
+                        stroke: #FFFFFF;
+                        stroke-miterlimit: 10;
+                    }
+                </style>
+                <path d="M.5 0v635V0z" id="scroll-line__path"></path>
+            </svg>
+            <span class="project-container__next-number"><a href="#">2</a></span>
+        </div>
+        <div class="project-container__controls">
+            <a href="#">Previous</a>
+            <a href="#">Next</a>
+        </div>
+        <div class="project-container__scroll-indicator">
+            Scroll
+        </div>
 
+    </section>
+</main>
 
 </body>
 </html>

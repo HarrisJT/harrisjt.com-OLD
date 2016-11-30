@@ -1,14 +1,260 @@
 /* ---------------------------------------
    User Custom Styles.
+
+   font-family: 'Open Sans', Arial, sans-serif;
+   font-family: 'Abril Fatface', Georgia, serif;
+
+
+   colors:
+   Very Dark Black: #020203
+   Dark Black: #070708
+   Medium Dark Black: #151416
+
+
    --------------------------------------- */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    transform-origin: 0 0 0
+}
+
+.clearfix {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background: #151416;
+}
+
+body:before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    min-height: 100%;
+    background-color: #070708;
+    z-index: -1;
+}
+
+body:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    min-height: 100%;
+    background-color: #fff;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: #151416;
+}
+
+.mainheader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65%;
+    z-index: 10;
+}
+
+.mainheader__left {
+    float: left;
+    width: 50%;
+    height: 50px;
+    padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
+}
+
+.mainheader__right {
+    float: right;
+    width: 50%;
+    height: 50px;
+    text-align: right;
+    padding: 54px 3.846153846%;
+}
+
+.mainheader a, .mainheader h1, .mainheader h2 {
+    font-size: 1.25em;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    letter-spacing: .0275em;
+    font-weight: 400;
+}
+
+.mainheader h2 {
+    margin: -5px 0 0;
+    opacity: .5;
+}
+
+.mainheader h1 span {
+    font-weight: 700;
+}
+
+.mainheader__right a {
+    margin-left: 20px;
+    font-weight: 600;
+}
 
 /* ---------------------------------------
    Front Page.
    --------------------------------------- */
 
-body {
-    background: blue;
+.project-container {
+    left: 2.5%;
+    right: 2.5%;
+    top: 130px;
+    bottom: 36px;
+    position: fixed;
+    min-height: 81.47368421%;
+    background: #151416;
+    z-index: 10;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+.project-container:before {
+    content: ' ';
+    position: fixed;
+    top: 26.29%;
+    right: 8.9%;
+    width: 21%;
+    height: 54.9%;
+    background-color: #020203;
+}
+
+.project-container__pagination {
+    position: fixed;
+    bottom: 8.84%;
+    top: 19.72%;
+    left: 3.5%;
+    z-index: 20;
+}
+
+#scroll-line {
+    position: absolute;
+    top: 35px;
+    width: 1px;
+    height: 535px;
+}
+
+.project-container__previous-number a {
+    color: #fff;
+    display: block;
+    margin-left: -4px;
+}
+
+.project-container__next-number a {
+    bottom: 0;
+    position: absolute;
+    color: #fff;
+    display: block;
+    margin-left: -4px;
+}
+
+.project-container__controls {
+    position: fixed;
+    bottom: 8.84%;
+    right: 6.3%;
+    z-index: 20;
+}
+
+.project-container__controls a {
+    color: white;
+    font-size: 1.125em;
+    margin-left: 20px;
+}
+
+.project-container__scroll-indicator {
+    position: fixed;
+    bottom: 8.84%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+.project-container__scroll-indicator:before {
+    content: " ";
+    position: absolute;
+    height: 35px;
+    width: 1px;
+    top: 82px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+.project {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.project__info {
+    position: absolute;
+    top: 33%;
+    left: 8.5%;
+}
+
+.project__title {
+    color: #fff;
+    font: 5em 'Abril Fatface', Georgia, serif;
+    margin: 0 0 5%;
+}
+
+.project__view {
+    display: block;
+    width: 275px;
+    height: 90px;
+    background: #020203;
+    color: #fff;
+    padding: 35px 20px;
+    font-size: 1em;
+}
+
+.project__view:after {
+    position: absolute;
+    content: '\203A';
+    font-size: 1.825em;
+    margin-left: 70px;
+    bottom: 12%;
+}
+
+.project__year {
+    position: absolute;
+    top: 7.9%;
+    right: 6.3%;
+    color: #fff;
+    font-size: 1.125em;
+}
+
+.project__screenshot {
+    background: url("../img/sitebar.png") no-repeat top;
+    padding-top: 36px;
+    position: absolute;
+    top: 20%;
+    right: 12%;
+}
+
+
 
 /* ---------------------------------------
    About.
@@ -33,5 +279,6 @@ body {
 @media screen and (max-width: 960px) {
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 675px) {
+
 }
