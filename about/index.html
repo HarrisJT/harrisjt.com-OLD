@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
 
     <title>About Me &bull; Harris Thompson | Web Designer and Developer</title>
-    <!--LOAD TODO: fonts, script should be async or defer?-->
+    <!--LOAD TODO: fonts (don't even need google fonts on here??), script should be async or defer?-->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="stylesheet" href="//fonts.googleapis.com/">
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="../_include/css/main.min.css">
 
-    <!--TODO: need this?-->
+    <!--TODO: need this?
     <script type="text/javascript" src="../_include/js/main.min.js" async></script>
-
+     -->
     <!--TODO: TWITTER-->
     <!--TODO: FACEBOOK-->
 
@@ -20,7 +21,7 @@
     <link rel="shortcut icon" href="../_include/fav.png">
     <link rel="apple-touch-icon-precomposed" href="../_include/fav.png">
     <meta name="apple-mobile-web-app-title" content="HarrisJT">
--->
+     -->
 
     <meta name="description"
           content="Web Designer and Developer in Milwaukee, Wisconsin. Although I specialize in front end web development, I design and develop anything digital including websites, interactives, advertisements, and software.">
@@ -28,7 +29,56 @@
 
 </head>
 <body>
-
+<main class="container">
+    <header class="mainheader">
+        <div class="mainheader__left">
+            <h1><a href="../" class="">Harris<span>Thompson</span></a></h1>
+            <h2>Web Developer</h2>
+        </div>
+        <div class="mainheader__right">
+            <a href="/about/"><span>About</span></a>
+            <a href="#"><span>Writing</span></a>
+            <a href="../contact/"><span>Contact</span></a>
+        </div>
+    </header>
+    <!-- Clearfix? -->
+    <section class="content-container">
+        <section class="project project--active">
+            <div class="about__info">
+                <p class="about__title">Hey,</p>
+                <!--TODO: rewrite-->
+                <p class="about__text">I am currently in Milwaukee at the University of Wisconsin-Milwaukee pursuing a
+                    Bachelor of
+                    Science in
+                    Information to strengthen my skills in web development and design. I love to be involved in the
+                    entire process from design concept through full execution in order to know the ins and outs of every
+                    aspect. I strongly value team organization, collaboration, and thorough project management. I strive
+                    for clean readable code that is both cross-platform compatible, accessible as well as performance
+                    optimized.</p>
+                <div class="about__experiences"><span>Experiences</span>
+                    <div class="about__year">2013-2017</div>
+                    <div class="about__position">University of Wisconsin - Milwaukee</div>
+                    <br>
+                    <div class="about__year">2014</div>
+                    <div class="about__position">Freelance Web Development</div>
+                </div>
+                <div class="about__social"><span>Social</span>
+                    <div class="about__sociallink"><a href="#">Twitter</a></div>
+                    <div class="about__sociallink"><a href="#">GitHub</a></div>
+                    <br>
+                    <div class="about__sociallink"><a href="#">LinkedIn</a></div>
+                    <div class="about__sociallink"><a href="#">StackOverflow</a></div>
+                    <br>
+                    <div class="about__sociallink"><a href="#">Behance</a></div>
+                    <div class="about__sociallink"><a href="#">harris@harrisjt.com</a></div>
+                </div>
+            </div>
+            <div class="about__photo">
+                <img src="../_include/img/aboutImage.jpg" height="413" width="472">
+            </div>
+        </section>
+    </section>
+</main>
 
 </body>
 </html>

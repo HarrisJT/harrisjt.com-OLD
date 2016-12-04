@@ -7,11 +7,12 @@
     <title>Contact Me &bull; Harris Thompson | Web Designer and Developer</title>
     <!--LOAD TODO: fonts, script should be async or defer?-->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="stylesheet" href="//fonts.googleapis.com/">
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="../_include/css/main.min.css">
 
-    <!--TODO: need this?-->
-    <script type="text/javascript" src="../_include/js/main.min.js" async></script>
+    <!--TODO: NEED?
+    <script type="text/javascript" src="../_include/js/main.min.js" async></script>-->
 
     <!--TODO: TWITTER-->
     <!--TODO: FACEBOOK-->
@@ -28,7 +29,49 @@
 
 </head>
 <body>
-
+<main class="container">
+    <header class="mainheader">
+        <div class="mainheader__left">
+            <h1><a href="../" class="">Harris<span>Thompson</span></a></h1>
+            <h2>Web Developer</h2>
+        </div>
+        <div class="mainheader__right">
+            <a href="../about/"><span>About</span></a>
+            <a href="#"><span>Writing</span></a>
+            <a href="/contact/"><span>Contact</span></a>
+        </div>
+    </header>
+    <!-- Clearfix? -->
+    <section class="content-container">
+        <form class="contactform" accept-charset="UTF-8"
+              action="https://formspree.io/harris@harrisjt.com" method="POST">
+            <fieldset>
+                <div id="contactleft">
+                    <div class="legend1">Your Name:</div>
+                    <div class="input-container">
+                        <input placeholder="Name" type="text" name="name" tabindex="1" required autofocus>
+                    </div>
+                    <div class="legend2">Your Contact Email:</div>
+                    <div class="input-container">
+                        <input placeholder="Email Address" type="email" name="email" tabindex="2" required>
+                    </div>
+                    <div class="legend3">The Subject:</div>
+                    <input name="subject" id="subject" type="text" placeholder="subject"/>
+                </div>
+                <div id="contactright">
+                    <div class="legend4">Enter Your Message:</div>
+                    <div class="input-container">
+                        <textarea name="message" placeholder="Message" tabindex="3" required></textarea>
+                    </div>
+                    <div class="input-container submit">
+                        <button type="submit" tabindex="4">Send Message</button>
+                        <span>&rsaquo;</span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</main>
 
 </body>
 </html>

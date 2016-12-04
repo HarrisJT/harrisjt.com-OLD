@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="page--home">
 <head>
+    <!--TODO: Remove root level robots.txt-->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
 
@@ -11,7 +13,7 @@
     <link rel="stylesheet"
           href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="_include/css/main.min.css">
-    <script type="text/javascript" src="_include/js/main.min.js" async></script>
+    <script type="text/javascript" src="_include/js/main.js" async></script>
 
 
     <!--TODO: TWITTER-->
@@ -42,7 +44,7 @@
         </div>
     </header>
     <!-- Clearfix? -->
-    <section class="project-container" id="project-container">
+    <section class="content-container" id="project-container">
         <section class="project project--active" id="project0">
             <div class="project__info">
                 <h3 class="project__title">Lorem Ipsum</h3>
@@ -57,11 +59,11 @@
         </section>
         <section class="project" id="project1">
             <div class="project__info">
-                <h3 class="project__title">Lorem Ipsum2</h3>
+                <h3 class="project__title">Project2</h3>
                 <a href="casestudy2/" class="project__view">View Case Study</a>
             </div>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy1-overview-screenshot.png">
+                <img src="_include/img/casestudy2-overview-screenshot.png">
             </div>
             <div class="project__year">
                 2015
@@ -73,7 +75,7 @@
                 <a href="casestudy3/" class="project__view">View Case Study</a>
             </div>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy1-overview-screenshot.png">
+                <img src="_include/img/casestudy3-overview-screenshot.png">
             </div>
             <div class="project__year">
                 2014
@@ -81,33 +83,26 @@
         </section>
         <section class="project" id="project3">
             <div class="project__info">
-                <h3 class="project__title">Lorem Ipsum4</h3>
+                <h3 class="project__title">Project4</h3>
                 <a href="casestudy4/" class="project__view">View Case Study</a>
             </div>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy1-overview-screenshot.png">
+                <img src="_include/img/casestudy4-overview-screenshot.png">
             </div>
             <div class="project__year">
                 2013
             </div>
         </section>
         <div class="project-container__pagination">
-            <span class="project-container__previous-number"><a href="#">1</a></span>
-            <svg xmlns="http://www.w3.org/2000/svg" id="scroll-line" viewBox="0 0 1 635">
-                <style>
-                    #scroll-line__path {
-                        fill: #FFFFFF;
-                        stroke: #FFFFFF;
-                        stroke-miterlimit: 10;
-                    }
-                </style>
-                <path d="M.5 0v635V0z" id="scroll-line__path"></path>
-            </svg>
-            <span class="project-container__next-number"><a href="#">2</a></span>
+            <span class="project-container__previous" id="previous-number">01</span>
+            <div class="progress-container">
+                <div id="progress-line"></div>
+            </div>
+            <span class="project-container__next">04</span>
         </div>
         <div class="project-container__controls">
-            <a href="#">Previous</a>
-            <a href="#">Next</a>
+            <a href="#" id="controls--previous">Previous</a>
+            <a href="#" id="controls--next">Next</a>
         </div>
         <div class="project-container__scroll-indicator">
             Scroll

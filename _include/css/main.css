@@ -25,13 +25,15 @@
 
 a {
     text-decoration: none;
+    color: #fff;
 }
 
 body {
     font-family: 'Open Sans', Arial, sans-serif;
+    color: #fff;
 }
 
-body:before {
+body:not(.case):before {
     content: ' ';
     position: absolute;
     top: 0;
@@ -48,6 +50,31 @@ body:before {
     padding: 0;
     overflow: hidden;
     position: relative;
+}
+
+.mainheader:not(.case .mainheader) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65%;
+    z-index: 10;
+}
+
+.case .mainheader {
+    width: 100%;
+}
+
+.mainheader__left {
+    float: left;
+    width: 50%;
+    height: 50px;
+    padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
+}
+
+.mainheader__center {
+    float: left;
+    height: 50px;
+    padding: 36px 0 0;
 }
 
 .mainheader {
@@ -70,6 +97,12 @@ body:before {
     width: 50%;
     height: 50px;
     text-align: right;
+    padding: 54px 3.846153846%;
+}
+
+.case .mainheader__right {
+    float: right;
+    height: 50px;
     padding: 54px 3.846153846%;
 }
 
@@ -100,7 +133,7 @@ body:before {
    Front Page.
    --------------------------------------- */
 
-.project-container {
+.content-container {
     left: 2.5%;
     right: 2.5%;
     top: 130px;
@@ -111,7 +144,7 @@ body:before {
     z-index: 10;
 }
 
-.project-container:before {
+.content-container:before {
     content: ' ';
     position: absolute;
     top: 13.1%;
@@ -129,25 +162,30 @@ body:before {
     z-index: 20;
 }
 
-#scroll-line {
+.progress-container {
     position: absolute;
     top: 35px;
     width: 1px;
-    height: 535px;
+    height: 89.7%;
 }
 
-.project-container__previous-number a {
-    color: #fff;
+#progress-line {
+    background: #fff;
+    height: 25%;
+}
+
+.project-container__previous {
     display: block;
-    margin-left: -4px;
+    margin-left: -8px;
+    cursor: default;
 }
 
-.project-container__next-number a {
+.project-container__next {
     bottom: 0;
     position: absolute;
-    color: #fff;
     display: block;
-    margin-left: -4px;
+    margin-left: -8px;
+    cursor: default;
 }
 
 .project-container__controls {
@@ -158,7 +196,6 @@ body:before {
 }
 
 .project-container__controls a {
-    color: white;
     font-size: 1.125em;
     margin-left: 20px;
 }
@@ -171,7 +208,6 @@ body:before {
     margin: auto;
     width: 100px;
     text-align: center;
-    color: #fff;
 }
 
 .project-container__scroll-indicator:before {
@@ -197,7 +233,9 @@ body:before {
 
 .project--active {
     opacity: 1;
+    overflow: hidden;
     z-index: 15;
+    transition: opacity 1.5s ease;
 }
 
 .project--active .project__info {
@@ -207,7 +245,6 @@ body:before {
 }
 
 .project__title {
-    color: #fff;
     font: 5em 'Abril Fatface', Georgia, serif;
     margin: 0 0 5%;
 }
@@ -215,11 +252,9 @@ body:before {
 .project--active .project__view {
     display: block;
     width: 275px;
-    height: 90px;
     background: #020203;
-    color: #fff;
     padding: 35px 20px;
-    font-size: 1em;
+    font-size: 1.125em;
 }
 
 .project__view:after {
@@ -234,7 +269,6 @@ body:before {
     position: absolute;
     top: 6.1%;
     right: 3%;
-    color: #fff;
     font-size: 1.125em;
 }
 
@@ -246,13 +280,211 @@ body:before {
     right: 12%;
 }
 
+.project__screenshot img {
+    width: 100%;
+    height: auto;
+}
+
 /* ---------------------------------------
    About.
    --------------------------------------- */
 
+.about__info {
+    position: absolute;
+    top: 17%;
+    left: 8.5%;
+    width: 40%;
+    z-index: 20;
+}
+
+.about__info:before {
+    content: 'hello';
+    font-size: 27em;
+    font-weight: 800;
+    color: #1a1b1d;
+    position: absolute;
+    left: -34%;
+    top: -10%;
+    z-index: -1;
+}
+
+.about__title {
+    font: 4em 'Abril Fatface', Georgia, serif;
+    margin: 0 0 4%;
+}
+
+.about__text {
+    font-size: 1.063em;
+    line-height: 1.5;
+    margin-bottom: 4%;
+}
+
+.about__photo {
+    position: absolute;
+    top: 22%;
+    right: 12%;
+}
+
+.about__experiences, .about__social {
+    margin-bottom: 15px;
+}
+
+.about__social {
+    margin-left: 93px;
+}
+
+.about__experiences span {
+    padding-left: 93px;
+}
+
+.about__experiences span, .about__social span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.about__experiences span:before, .about__social span:before {
+    content: " ";
+    position: absolute;
+    height: 1px;
+    width: 80px;
+    margin-top: 11px;
+    left: 0;
+    background-color: #fff;
+}
+
+.about__year, .about__position, .about__sociallink {
+    display: table-cell;
+}
+
+.about__year {
+    width: 93px;
+}
+
+.about__sociallink {
+    width: 125px;
+}
+
+.about__info br {
+    content: ' ';
+    display: block;
+    margin-bottom: .75em;
+}
+
 /* ---------------------------------------
    Contact.
    --------------------------------------- */
+
+.page--contact .content-container {
+    overflow-y: auto;
+}
+
+.contactform {
+    height: auto;
+    margin: 6.25% 0 0 8.5%;
+    width: 60%;
+    position: relative;
+    padding: 10px 40px 40px 40px;
+}
+
+.contactform:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.contactform ::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.contactform ::-moz-placeholder {
+    color: #fff;
+}
+
+.contactform :-moz-placeholder {
+    color: #fff;
+}
+
+.contactform :-ms-input-placeholder {
+    color: #fff;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus, button, textarea {
+    border: none;
+    outline: none;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: left
+}
+
+.input-container {
+    padding: 25px 0 0;
+    border-bottom: 2px solid #fff;
+    position: relative;
+}
+
+.input-container.submit {
+    border-bottom: none;
+    padding-top: 45px;
+}
+
+input, textarea {
+    font-size: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+input {
+    height: 56px;
+}
+
+textarea {
+    color: #fff;
+    padding-top: 17px;
+    padding-left: 0;
+    width: 100%;
+    height: 120px;
+    display: inline-block;
+    resize: vertical;
+    background: transparent;
+}
+
+input[type="text"], input[type="email"] {
+    margin: 0;
+    color: #fff;
+    background: transparent;
+    width: 100%;
+    padding: 12px 20px 13px 0;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+button {
+    background: #fff;
+    color: #000;
+    font-size: 20px;
+    padding: 18px;
+    text-align: left;
+    width: 200px;
+    transition: width .3s;
+}
+
+button:hover {
+    width: 235px;
+}
+
+.submit span {
+    font-size: 1.825em;
+    margin-left: -30px;
+    color: #000;
+}
+
 /* ---------------------------------------
    Case Studies.
    --------------------------------------- */
