@@ -43,28 +43,24 @@
     </header>
     <!-- Clearfix? -->
     <section class="content-container">
+
         <form class="contactform" accept-charset="UTF-8"
               action="https://formspree.io/harris@harrisjt.com" method="POST">
+            <h4>Drop me a line,</h4>
             <fieldset>
                 <div id="contactleft">
-                    <div class="legend1">Your Name:</div>
-                    <div class="input-container">
-                        <input placeholder="Name" type="text" name="name" tabindex="1" required autofocus>
-                    </div>
-                    <div class="legend2">Your Contact Email:</div>
-                    <div class="input-container">
-                        <input placeholder="Email Address" type="email" name="email" tabindex="2" required>
-                    </div>
-                    <div class="legend3">The Subject:</div>
-                    <input name="subject" id="subject" type="text" placeholder="subject"/>
+                    <label for="name">Name:</label>
+                    <input name="name" id="name" placeholder="Name" type="text" tabindex="1" required autofocus>
+                    <label for="email">Email:</label>
+                    <input name="email" id="email" placeholder="Email Address" type="email" tabindex="2" required>
+                    <label for="subject">Subject:</label>
+                    <input name="subject" id="subject" placeholder="Subject" type="text" tabindex="3"/>
                 </div>
                 <div id="contactright">
-                    <div class="legend4">Enter Your Message:</div>
-                    <div class="input-container">
-                        <textarea name="message" placeholder="Message" tabindex="3" required></textarea>
-                    </div>
-                    <div class="input-container submit">
-                        <button type="submit" tabindex="4">Send Message</button>
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" placeholder="Message" tabindex="4" required></textarea>
+                    <div class="submit">
+                        <button type="submit" tabindex="5">Send Message</button>
                         <span>&rsaquo;</span>
                     </div>
                 </div>
