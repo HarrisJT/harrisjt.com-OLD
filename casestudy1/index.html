@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="page--casestudy1">
+<html lang="en" class="page--case">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
@@ -7,9 +7,13 @@
     <title>CaseStudy1 &bull; Harris Thompson | Web Designer and Developer</title>
     <!--LOAD TODO: fonts, script should be async or defer?-->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="stylesheet" href="//fonts.googleapis.com/">
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Abril+Fatface%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="../_include/css/main.min.css">
-    <script type="text/javascript" src="../_include/js/main.min.js" async></script>
+
+
+    <!--TODO: need?
+    <script type="text/javascript" src="../_include/js/main.min.js" async></script>-->
 
     <!--TODO: TWITTER-->
     <!--TODO: FACEBOOK-->
@@ -26,26 +30,69 @@
     <link rel="canonical" href="https://harrisjt.com/casestudy1">
 
 </head>
-<body class="case">
-<main class="container">
+<body>
+<div class="container">
     <header class="mainheader">
         <div class="mainheader__left">
             <h1><a href="../" class="">Harris<span>Thompson</span></a></h1>
-            <h2>Web Developer</h2>
+            <p>Web Developer</p>
         </div>
         <div class="mainheader__center">
             <a href="../about/"><span>All Projects</span></a>
         </div>
-        <div class="mainheader__right">
-            <a href="../about/"><span>About</span></a>
-            <a href="#"><span>Writing</span></a>
-            <a href="../contact/"><span>Contact</span></a>
-        </div>
+        <nav class="mainheader__right">
+            <ul>
+                <li><a href="../about/"><span>About</span></a></li>
+                <li><a href="#"><span>Writing</span></a></li>
+                <li><a href="../contact/"><span>Contact</span></a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- Clearfix? -->
 
+</div>
+<main>
+    <div class="case-container">
+        <section class="case-overview">
+            <div class="about__info">
+                <p class="about__title">Hey,</p>
+                <!--TODO: rewrite-->
+                <p class="about__text">I am currently in Milwaukee at the University of Wisconsin-Milwaukee pursuing a
+                    Bachelor of
+                    Science in
+                    Information to strengthen my skills in web development and design. I love to be involved in the
+                    entire process from design concept through full execution in order to know the ins and outs of every
+                    aspect. I strongly value team organization, collaboration, and thorough project management. I strive
+                    for clean readable code that is both cross-platform compatible, accessible as well as performance
+                    optimized.</p>
+                <div class="about__experiences"><span>Experiences</span>
+                    <div class="about__year">2013-2017</div>
+                    <div class="about__position">University of Wisconsin - Milwaukee</div>
+                    <br>
+                    <div class="about__year">2014</div>
+                    <div class="about__position">Freelance Web Development</div>
+                </div>
+                <div class="about__social"><span>Social</span>
+                    <div class="about__sociallink"><a href="#">Twitter</a></div>
+                    <div class="about__sociallink"><a href="#">GitHub</a></div>
+                    <br>
+                    <div class="about__sociallink"><a href="#">LinkedIn</a></div>
+                    <div class="about__sociallink"><a href="#">StackOverflow</a></div>
+                    <br>
+                    <div class="about__sociallink"><a href="#">Behance</a></div>
+                    <div class="about__sociallink"><a href="#">harris@harrisjt.com</a></div>
+                </div>
+            </div>
+            <div class="about__photo">
+                <img src="../_include/img/aboutImage.jpg" height="413" width="472">
+            </div>
+        </section>
+        <section class="case-choices">
+            <section class="case-graphics">
+
+
+            </section>
+        </section>
+    </div>
 </main>
-
-
 </body>
 </html>

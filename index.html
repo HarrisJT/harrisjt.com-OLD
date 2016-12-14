@@ -2,6 +2,7 @@
 <html lang="en" class="page--home">
 <head>
     <!--TODO: Remove root level robots.txt-->
+    <!--TODO: get rid of console.log stuff in main.js-->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
@@ -11,9 +12,9 @@
     <!--LOAD TODO: fonts, script should be async or defer?-->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="stylesheet"
-          href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+          href="//fonts.googleapis.com/css?family=Abril+Fatface%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="_include/css/main.min.css">
-    <script type="text/javascript" src="_include/js/main.js" async></script>
+    <script type="text/javascript" src="_include/js/main.min.js" async></script>
 
 
     <!--TODO: TWITTER-->
@@ -31,67 +32,100 @@
 
 </head>
 <body>
-<main class="container">
+<div class="container">
     <header class="mainheader">
         <div class="mainheader__left">
             <h1><a href="#" class="">Harris<span>Thompson</span></a></h1>
-            <h2>Web Developer</h2>
+            <p>Web Developer</p>
         </div>
-        <div class="mainheader__right">
-            <a href="about/"><span>About</span></a>
-            <a href="#"><span>Writing</span></a>
-            <a href="contact/"><span>Contact</span></a>
-        </div>
+        <nav class="mainheader__right">
+            <ul>
+                <li><a href="about/"><span>About</span></a></li>
+                <li><a href="#"><span>Writing</span></a></li>
+                <li><a href="contact/"><span>Contact</span></a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- Clearfix? -->
-    <section class="content-container" id="project-container">
+    <main class="content-container" id="project-container">
         <section class="project project--active" id="project0">
-            <div class="project__info">
-                <h3 class="project__title">Lorem Ipsum</h3>
-                <a href="casestudy1/" class="project__view">View Case Study</a>
-            </div>
+            <header class="project__info">
+                <h2 class="project__title">Lorem Ipsum</h2>
+                <a href="casestudy1/" class="project__view">
+                    <span>View Case Study
+                        <span class="arrow" style="width:15px; height:10px;">
+                            <svg width="15" height="10">
+                              <use xlink:href="_include/img/arrow.svg#arrow-right"></use>
+                            </svg>
+                          </span>
+                    </span>
+                </a>
+            </header>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy1-overview-screenshot.png">
+                <img src="_include/img/casestudy1-overview-screenshot.png" alt="screenshot of casestudy1 homepage">
             </div>
-            <div class="project__year">
+            <span class="project__year">
                 2016
-            </div>
+            </span>
         </section>
         <section class="project" id="project1">
-            <div class="project__info">
-                <h3 class="project__title">Project2</h3>
-                <a href="casestudy2/" class="project__view">View Case Study</a>
-            </div>
+            <header class="project__info">
+                <h2 class="project__title">Project2</h2>
+                <a href="casestudy2/" class="project__view">
+                    <span>View Case Study
+                        <span class="arrow" style="width:15px; height:10px;">
+                            <svg width="15" height="10">
+                              <use xlink:href="_include/img/arrow.svg#arrow-right"></use>
+                            </svg>
+                          </span>
+                    </span>
+                </a>
+            </header>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy2-overview-screenshot.png">
+                <img src="_include/img/casestudy2-overview-screenshot.png" alt="screenshot of casestudy2 homepage">
             </div>
-            <div class="project__year">
+            <span class="project__year">
                 2015
-            </div>
+            </span>
         </section>
         <section class="project" id="project2">
-            <div class="project__info">
-                <h3 class="project__title">Lorem Ipsum3</h3>
-                <a href="casestudy3/" class="project__view">View Case Study</a>
-            </div>
+            <header class="project__info">
+                <h2 class="project__title">Lorem Ipsum3</h2>
+                <a href="casestudy3/" class="project__view">
+                    <span>View Case Study
+                        <span class="arrow" style="width:15px; height:10px;">
+                            <svg width="15" height="10">
+                              <use xlink:href="_include/img/arrow.svg#arrow-right"></use>
+                            </svg>
+                          </span>
+                    </span>
+                </a>
+            </header>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy3-overview-screenshot.png">
+                <img src="_include/img/casestudy3-overview-screenshot.png" alt="screenshot of casestudy3 homepage">
             </div>
-            <div class="project__year">
+            <span class="project__year">
                 2014
-            </div>
+            </span>
         </section>
         <section class="project" id="project3">
-            <div class="project__info">
-                <h3 class="project__title">Project4</h3>
-                <a href="casestudy4/" class="project__view">View Case Study</a>
-            </div>
+            <header class="project__info">
+                <h2 class="project__title">Project4</h2>
+                <a href="casestudy4/" class="project__view">
+                    <span>View Case Study
+                        <span class="arrow" style="width:15px; height:10px;">
+                            <svg width="15" height="10">
+                              <use xlink:href="_include/img/arrow.svg#arrow-right"></use>
+                            </svg>
+                          </span>
+                    </span>
+                </a>
+            </header>
             <div class="project__screenshot">
-                <img src="_include/img/casestudy4-overview-screenshot.png">
+                <img src="_include/img/casestudy4-overview-screenshot.png" alt="screenshot of casestudy4 homepage">
             </div>
-            <div class="project__year">
+            <span class="project__year">
                 2013
-            </div>
+            </span>
         </section>
         <div class="project-container__pagination">
             <span class="project-container__previous" id="previous-number">01</span>
@@ -107,9 +141,8 @@
         <div class="project-container__scroll-indicator">
             Scroll
         </div>
-
-    </section>
-</main>
+    </main>
+</div>
 
 </body>
 </html>

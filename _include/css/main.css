@@ -23,6 +23,11 @@
     clear: both;
 }
 
+ol, ul {
+    list-style: none;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: #fff;
@@ -33,7 +38,7 @@ body {
     color: #fff;
 }
 
-body:not(.case):before {
+html:not(.page--case) body:before {
     content: ' ';
     position: absolute;
     top: 0;
@@ -52,7 +57,7 @@ body:not(.case):before {
     position: relative;
 }
 
-.mainheader:not(.case .mainheader) {
+html:not(.page--case) .mainheader {
     position: fixed;
     top: 0;
     left: 0;
@@ -60,21 +65,18 @@ body:not(.case):before {
     z-index: 10;
 }
 
-.case .mainheader {
+.page--case .mainheader {
     width: 100%;
 }
 
-.mainheader__left {
-    float: left;
-    width: 50%;
-    height: 50px;
-    padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
+.page--case .mainheader__left {
+    padding: 36px 2.5%;
 }
 
 .mainheader__center {
     float: left;
     height: 50px;
-    padding: 36px 0 0;
+    padding: 54px 0 0;
 }
 
 .mainheader {
@@ -82,7 +84,7 @@ body:not(.case):before {
     top: 0;
     left: 0;
     width: 65%;
-    z-index: 10;
+    z-index: 100;
 }
 
 .mainheader__left {
@@ -91,6 +93,7 @@ body:not(.case):before {
     height: 50px;
     padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
 }
+
 
 .mainheader__right {
     float: right;
@@ -100,13 +103,12 @@ body:not(.case):before {
     padding: 54px 3.846153846%;
 }
 
-.case .mainheader__right {
-    float: right;
-    height: 50px;
-    padding: 54px 3.846153846%;
+.page--case .mainheader__right {
+    padding: 54px 2.5%;
+    width: calc(50% - 110px);
 }
 
-.mainheader a, .mainheader h1, .mainheader h2 {
+.mainheader a, .mainheader h1, .mainheader p {
     font-size: 1.25em;
     margin: 0;
     padding: 0;
@@ -115,7 +117,7 @@ body:not(.case):before {
     font-weight: 400;
 }
 
-.mainheader h2 {
+.mainheader p {
     margin: -5px 0 0;
     opacity: .5;
 }
@@ -124,14 +126,38 @@ body:not(.case):before {
     font-weight: 700;
 }
 
+.mainheader__right li {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    letter-spacing: .35em;
+}
+
 .mainheader__right a {
-    margin-left: 20px;
     font-weight: 600;
 }
 
-/* ---------------------------------------
-   Front Page.
-   --------------------------------------- */
+.mainheader__right a:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #000;
+    transform-origin: right center;
+    transform: scaleX(0);
+    transition: transform .2s cubic-bezier(.165, .84, .44, 1);
+
+}
+
+.mainheader__right a:hover:after {
+    transform-origin: left center;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
 
 .content-container {
     left: 2.5%;
@@ -144,7 +170,7 @@ body:not(.case):before {
     z-index: 10;
 }
 
-.content-container:before {
+html:not(.page--case) .content-container:before {
     content: ' ';
     position: absolute;
     top: 13.1%;
@@ -153,6 +179,14 @@ body:not(.case):before {
     height: 73.34%;
     background-color: #020203;
 }
+
+.page--case .content-container {
+    position: absolute;
+}
+
+/* ---------------------------------------
+   Front Page.
+   --------------------------------------- */
 
 .project-container__pagination {
     position: absolute;
@@ -211,9 +245,8 @@ body:not(.case):before {
     text-align: center;
 }
 
-
 .project-container__scroll-indicator:before {
-    content: " ";
+    content: ' ';
     position: absolute;
     height: 35px;
     width: 1px;
@@ -248,23 +281,100 @@ body:not(.case):before {
 
 .project__title {
     font: 5em 'Abril Fatface', Georgia, serif;
-    margin: 0 0 5%;
+    margin: 0 0 40px;
 }
 
-.project--active .project__view {
+.project--active .project__view, .submit {
     display: block;
-    width: 275px;
-    background: #020203;
-    padding: 35px 20px;
-    font-size: 1.125em;
+    height: 65px;
+    background: #fff;
+    width: 235px;
+    padding: 0 20px 0 30px;
+    font-weight: 700;
+    line-height: 64px;
+    font-size: 1.063em;
+    color: #000;
+    position: relative;
 }
 
-.project__view:after {
+.project__view:before, .project__view:after, .submit:before, .submit:after {
+    content: '';
     position: absolute;
-    content: '\203A';
-    font-size: 1.825em;
-    margin-left: 70px;
-    bottom: 12%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.project__view:before, .submit:before {
+    background: #4ECDC4;
+    z-index: -1;
+}
+
+.project__view:after, .submit:after {
+    background: #EC008C;
+    z-index: -2;
+}
+
+.project__view:hover:before, .project__view:focus:before, .submit:hover:before {
+    animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+.project__view:hover:after, .project__view:focus:after, .submit:hover:after {
+    animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+
+@keyframes glitch {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+    80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+.arrow {
+    float: right;
+    position: relative;
+    margin-top: 29px;
+    margin-right: 10px;
+    transition: transform .2s cubic-bezier(.165, .84, .44, 1);
+}
+
+.arrow svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    fill: #000;
+    transition: fill .2s cubic-bezier(.165, .84, .44, 1);
+}
+
+.project__view:hover .arrow svg, .project__view:focus .arrow svg, .submit:hover .arrow svg, .submit:focus .arrow svg {
+    fill: #EC008C;
+}
+
+.project__view:hover .arrow, .project__view:focus .arrow, .submit:hover .arrow, .submit:focus .arrow {
+    transform: translate(6px);
 }
 
 .project__year {
@@ -346,7 +456,7 @@ body:not(.case):before {
 }
 
 .about__experiences span:before, .about__social span:before {
-    content: " ";
+    content: ' ';
     position: absolute;
     height: 1px;
     width: 80px;
@@ -434,7 +544,7 @@ textarea {
     linear-gradient(to left, transparent 14px, transparent 14px),
     repeating-linear-gradient(transparent, transparent 30px, #ccc 32px, #ccc 32px, transparent 32px) local;
     line-height: 32px;
-    height: 280px;
+    min-height: 280px;
     resize: vertical;
 }
 
@@ -455,32 +565,40 @@ input {
     background: none;
 }
 
-
-button {
+.submit {
+    width: 255px;
     background: #fff;
-    color: #000;
-    font-size: 20px;
-    padding: 18px;
-    text-align: left;
-    width: 200px;
-    transition: width .3s;
     outline: none;
     border: none;
-}
-
-button:hover {
-    width: 235px;
-}
-
-.submit span {
-    font-size: 1.825em;
-    margin-left: -30px;
-    color: #000;
+    cursor: pointer;
 }
 
 /* ---------------------------------------
    Case Studies.
    --------------------------------------- */
+
+.case-container {
+    left: 2.5%;
+    right: 2.5%;
+    top: 130px;
+    bottom: 36px;
+    position: absolute;
+    min-height: 81.47368421%;
+}
+
+.case-overview {
+    background: #151416;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.case-choices {
+    background: #151416;
+    height: 100%;
+    left: 2.5%;
+    right: 2.5%;
+}
+
 /* ---------------------------------------
    Writing.
    --------------------------------------- */
