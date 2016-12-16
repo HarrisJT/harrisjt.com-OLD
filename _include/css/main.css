@@ -36,6 +36,7 @@ a {
 body {
     font-family: 'Open Sans', Arial, sans-serif;
     color: #fff;
+    text-rendering: optimizeLegibility;
 }
 
 html:not(.page--case) body:before {
@@ -58,9 +59,6 @@ html:not(.page--case) body:before {
 }
 
 html:not(.page--case) .mainheader {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 65%;
     z-index: 10;
 }
@@ -69,33 +67,29 @@ html:not(.page--case) .mainheader {
     width: 100%;
 }
 
-.page--case .mainheader__left {
+.page--case .mainheader-left {
     padding: 36px 2.5%;
 }
 
-.mainheader__center {
+.mainheader-center {
     float: left;
     height: 50px;
     padding: 54px 0 0;
 }
 
 .mainheader {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 65%;
     z-index: 100;
 }
 
-.mainheader__left {
+.mainheader-left {
     float: left;
     width: 50%;
     height: 50px;
     padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
 }
 
-
-.mainheader__right {
+.mainheader-right {
     float: right;
     width: 50%;
     height: 50px;
@@ -103,7 +97,7 @@ html:not(.page--case) .mainheader {
     padding: 54px 3.846153846%;
 }
 
-.page--case .mainheader__right {
+.page--case .mainheader-right {
     padding: 54px 2.5%;
     width: calc(50% - 110px);
 }
@@ -126,7 +120,7 @@ html:not(.page--case) .mainheader {
     font-weight: 700;
 }
 
-.mainheader__right li {
+.mainheader-right li {
     position: relative;
     display: inline-block;
     margin-right: 10px;
@@ -134,11 +128,11 @@ html:not(.page--case) .mainheader {
     letter-spacing: .35em;
 }
 
-.mainheader__right a {
+.mainheader-right a {
     font-weight: 600;
 }
 
-.mainheader__right a:after {
+.mainheader-right a:after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -148,11 +142,11 @@ html:not(.page--case) .mainheader {
     background: #000;
     transform-origin: right center;
     transform: scaleX(0);
-    transition: transform .2s cubic-bezier(.165, .84, .44, 1);
+    transition: transform .4s cubic-bezier(.165, .84, .44, 1);
 
 }
 
-.mainheader__right a:hover:after {
+.mainheader-right a:hover:after {
     transform-origin: left center;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -273,118 +267,95 @@ html:not(.page--case) .content-container:before {
     transition: opacity 1.5s ease;
 }
 
-.project--active .project__info {
+.project--active .project-info {
     position: absolute;
     top: 33%;
     left: 8.5%;
 }
 
-.project__title {
+.project-title {
     font: 5em 'Abril Fatface', Georgia, serif;
     margin: 0 0 40px;
 }
 
-.project--active .project__view, .submit {
-    display: block;
+.project--active .project-view, .submit, .case-view__button {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: transparent;
     height: 65px;
-    background: #fff;
-    width: 235px;
+    border: 2px solid #fff;
+    width: 240px;
     padding: 0 20px 0 30px;
     font-weight: 700;
     line-height: 64px;
     font-size: 1.063em;
-    color: #000;
-    position: relative;
 }
 
-.project__view:before, .project__view:after, .submit:before, .submit:after {
+.project--active .project-view:after, .submit:after, .case-view__button:after {
     content: '';
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .4s cubic-bezier(.4, 0, .2, 1) .075s;
 }
 
-.project__view:before, .submit:before {
-    background: #4ECDC4;
+.project--active .project-view:hover:after, .submit:hover:after, .case-view__button:hover:after {
+    transform: scaleX(1);
+    transition-delay: 0s;
     z-index: -1;
 }
 
-.project__view:after, .submit:after {
-    background: #EC008C;
-    z-index: -2;
+.project--active .project-view span, .submit span, .case-view__button span {
+    transition: color .2s cubic-bezier(.4, 0, .2, 1) .125s;
 }
 
-.project__view:hover:before, .project__view:focus:before, .submit:hover:before {
-    animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+.project--active .project-view:hover span, .project--active .project-view:focus span, .submit:hover span, .submit:focus span, .case-view__button:hover span, .case-view__button:focus span {
+    color: #000;
+    transition-delay: 0s;
 }
 
-.project__view:hover:after, .project__view:focus:after, .submit:hover:after {
-    animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
-}
-
-@keyframes glitch {
-    0% {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-    }
-    20% {
-        -webkit-transform: translate(-2px, 2px);
-        transform: translate(-2px, 2px);
-    }
-    40% {
-        -webkit-transform: translate(-2px, -2px);
-        transform: translate(-2px, -2px);
-    }
-    60% {
-        -webkit-transform: translate(2px, 2px);
-        transform: translate(2px, 2px);
-    }
-    80% {
-        -webkit-transform: translate(2px, -2px);
-        transform: translate(2px, -2px);
-    }
-    to {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-    }
-}
-
-.arrow {
+.project--active span .arrow, .submit .arrow, .case-view__button span .arrow {
     float: right;
     position: relative;
-    margin-top: 29px;
-    margin-right: 10px;
-    transition: transform .2s cubic-bezier(.165, .84, .44, 1);
+    margin-top: 28px;
+    margin-right: 9px;
+    transition: transform .3s cubic-bezier(.165, .84, .44, 1) .35s;
 }
 
-.arrow svg {
+.project--active span .arrow svg, .submit .arrow svg, .case-view__button .arrow svg {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    fill: #fff;
+    transition: fill .2s cubic-bezier(.165, .84, .44, 1) .15s;
+}
+
+.project-view:hover .arrow svg, .project-view:focus .arrow svg, .submit:hover .arrow svg, .submit:focus .arrow svg, .case-view__button:hover .arrow svg, .case-view__button:focus .arrow svg {
     fill: #000;
-    transition: fill .2s cubic-bezier(.165, .84, .44, 1);
+    transition-delay: 0s;
 }
 
-.project__view:hover .arrow svg, .project__view:focus .arrow svg, .submit:hover .arrow svg, .submit:focus .arrow svg {
-    fill: #EC008C;
+.project-view:hover .arrow, .project-view:focus .arrow, .submit:hover .arrow, .submit:focus .arrow, .case-view__button:hover .arrow, .case-view__button:focus .arrow {
+    transform: translate(5px);
+    transition-delay: 0s;
 }
 
-.project__view:hover .arrow, .project__view:focus .arrow, .submit:hover .arrow, .submit:focus .arrow {
-    transform: translate(6px);
-}
-
-.project__year {
+.project-year {
     position: absolute;
     top: 6.1%;
     right: 3%;
     font-size: 1.125em;
 }
 
-.project__screenshot {
+.project-screenshot {
     background: url("../img/sitebar.png") no-repeat top;
     padding-top: 36px;
     position: absolute;
@@ -392,7 +363,7 @@ html:not(.page--case) .content-container:before {
     right: 12%;
 }
 
-.project__screenshot img {
+.project-screenshot img {
     width: 100%;
     height: auto;
 }
@@ -401,7 +372,7 @@ html:not(.page--case) .content-container:before {
    About.
    --------------------------------------- */
 
-.about__info {
+.content-info {
     position: absolute;
     top: 17%;
     left: 8.5%;
@@ -409,8 +380,11 @@ html:not(.page--case) .content-container:before {
     z-index: 20;
 }
 
-.about__info:before {
+.page--about .content-info:before {
     content: 'hello';
+}
+
+.content-info:before {
     font-size: 27em;
     font-weight: 800;
     color: #1a1b1d;
@@ -420,12 +394,12 @@ html:not(.page--case) .content-container:before {
     z-index: -1;
 }
 
-.about__title {
+.content-title {
     font: 4em 'Abril Fatface', Georgia, serif;
     margin: 0 0 4%;
 }
 
-.about__text {
+.content-text {
     font-size: 1.063em;
     line-height: 1.5;
     margin-bottom: 4%;
@@ -445,17 +419,18 @@ html:not(.page--case) .content-container:before {
     margin-left: 93px;
 }
 
-.about__experiences span {
+.about__experiences span, .case-client, .case-date, .case-services, .case-analysis .case-choice span {
     padding-left: 93px;
 }
 
-.about__experiences span, .about__social span {
+.about__experiences span, .about__social span, .case-client, .case-date span, .case-services span {
     font-weight: 600;
     display: block;
     margin-bottom: 12px;
 }
 
-.about__experiences span:before, .about__social span:before {
+/* TODO: maybe make this a single class? */
+.about__experiences span:before, .about__social span:before, .case-client:before, .case-date span:before, .case-services span:before, .case-analysis .case-choice span:before {
     content: ' ';
     position: absolute;
     height: 1px;
@@ -465,7 +440,7 @@ html:not(.page--case) .content-container:before {
     background-color: #fff;
 }
 
-.about__year, .about__position, .about__sociallink {
+.about__year, .about__position, .case-date__item, .case-services__item, .case-date__item {
     display: table-cell;
 }
 
@@ -473,11 +448,11 @@ html:not(.page--case) .content-container:before {
     width: 93px;
 }
 
-.about__sociallink {
+.case-date__item, .case-services__item, .case-date__item {
     width: 125px;
 }
 
-.about__info br {
+.content-info br {
     content: ' ';
     display: block;
     margin-bottom: .75em;
@@ -567,15 +542,29 @@ input {
 
 .submit {
     width: 255px;
-    background: #fff;
     outline: none;
-    border: none;
     cursor: pointer;
+    color: #fff;
 }
 
 /* ---------------------------------------
    Case Studies.
    --------------------------------------- */
+
+.page--case .content-info:before {
+    content: '01';
+}
+
+.page--case:before {
+    content: ' ';
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 2.5%;
+    top: 0;
+    z-index: 25;
+}
 
 .case-container {
     left: 2.5%;
@@ -592,11 +581,107 @@ input {
     margin-bottom: 100px;
 }
 
-.case-choices {
-    background: #151416;
+.case-view {
+    position: absolute;
+    left: 48%;
+    bottom: 15%;
+}
+
+.case-overview .project-screenshot {
+    top: 17.8%;
+    right: 9%;
+    width: 660px;
     height: 100%;
+}
+
+.case-analysis {
+    background: #151416;
     left: 2.5%;
     right: 2.5%;
+    padding-top: 475px;
+}
+
+.case-graphics__logo {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.case-graphics__mockup {
+    display: block;
+    margin: 0 auto -450px;
+    width: 45%;
+}
+
+.case-analysis img {
+    display: block;
+    margin-left: 4.25%;
+}
+
+.case-choice p {
+    width: 55%;
+    margin-bottom: 2%;
+}
+
+.case-choice {
+    margin: 40px 0 0 8.5%;
+}
+
+.case-analysis .case-choice span:before {
+    left: 8.5%;
+}
+
+.case-choice__title {
+    font: 3.5em 'Abril Fatface', Georgia, serif;
+    margin: 0 0 2%;
+}
+
+.awards {
+    margin: 100px auto;
+}
+
+.awards .content-title {
+    text-align: center;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.awards h2:before, .awards h2:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 8%;
+    height: 1px;
+    content: '\a0';
+    background-color: white;
+}
+
+.awards h2:before {
+    margin-left: -200px;
+}
+
+.awards h2:after {
+    margin-left: 55px;
+}
+
+.awards-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.awards-list__item {
+    display: inline-block;
+    padding: 2%;
+}
+
+.awards-list__logo {
+    background-color: #4E5056;
+    transition: 0.2s;
+}
+
+.awards-list__logo:hover, .awards-list__logo:focus {
+    background-color: #fff;
 }
 
 /* ---------------------------------------

@@ -1,7 +1,7 @@
 const container = document.getElementById('project-container');
 const controlNext = document.getElementById('controls--next');
 const controlPrevious = document.getElementById('controls--previous');
-const numberPrevious = document.getElementById('previous-number');
+const numberPrevious = document.querySelector('.project-container__previous');
 const progressLine = document.getElementById('progress-line');
 
 if (container.addEventListener) {
@@ -22,9 +22,9 @@ function throttle(limit, fn) {
   };
 }
 
-const projects = [document.getElementById('project0'), document.getElementById('project1'),
-  document.getElementById('project2'), document.getElementById('project3'),];
 let currentActive = 0;
+
+const projects = document.getElementsByClassName('project');
 
 function progress() {
   switch (currentActive) {

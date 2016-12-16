@@ -1,6 +1,8 @@
 .idea/
 _NONSITE/
 _include/img
+.flooignore
+.floo
 *.min.css
 *.min.js
 robots.txt
