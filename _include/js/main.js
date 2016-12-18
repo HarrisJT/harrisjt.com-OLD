@@ -75,7 +75,7 @@ if (document.documentElement.classList.contains('page--home')) {
 
   function MouseWheelHandler(e) {
 
-    var e = window.event || e; // old IE support
+    var e = window.event || e; // old IE support only works with var
     const delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
     if (delta > 0) {
       projects[currentActive].classList.remove('project--active');
@@ -126,7 +126,6 @@ if (document.documentElement.classList.contains('page--home')) {
       return 0.5 * (Math.pow((p - 2), 5) + 2);
     }
 
-    // add animation loop
     function tick() {
       currentTime += 1 / 60;
 

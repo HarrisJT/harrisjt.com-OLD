@@ -52,6 +52,7 @@ body {
     font-family: 'Open Sans', Arial, sans-serif;
     color: #fff;
     text-rendering: optimizeLegibility;
+    margin: 0;
 }
 
 html:not(.page--case) body:before {
@@ -101,7 +102,7 @@ html:not(.page--case) .mainheader {
     float: left;
     width: 50%;
     height: 50px;
-    padding: 36px 3.846153846%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
+    padding: 36px 3.84615384615%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
 }
 
 .mainheader-right {
@@ -503,10 +504,15 @@ footer .case-view__button {
     top: -3px;
     left: 7px;
     transition: .2s;
+    border: none;
 }
 
 .screenshot-browser__bar:hover a {
     color: rgba(255, 255, 255, .65);
+}
+
+.screenshot-browser__bar a:hover {
+    border: none;
 }
 
 /* ---------------------------------------
@@ -716,8 +722,16 @@ input {
    Case Studies.
    --------------------------------------- */
 
-.page--case .content-info:before {
+.port .content-info:before {
     content: '01';
+}
+
+.ftb .content-info:before {
+    content: '02';
+}
+
+.dtm .content-info:before {
+    content: '03';
 }
 
 .page--case:before {
@@ -782,7 +796,6 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .case-showcase img {
@@ -796,7 +809,7 @@ input {
 }
 
 .case-choice img {
-    display: block;
+    display: inline-block;
     margin-left: 4.25%;
 }
 
@@ -887,7 +900,7 @@ input {
     filter: alpha(opacity=0);
     position: fixed;
     bottom: 45px;
-    right: 5%;
+    right: 4.5%;
     border: 2px solid #fff;
     text-align: center;
     font-weight: 600;
@@ -924,7 +937,7 @@ footer {
     text-align: center;
 }
 
-.upper {
+.footer-case__upper {
     padding: 45px 8.5% 55px;
     display: flex;
     flex-direction: row;
@@ -968,56 +981,55 @@ footer a:hover {
     background: none !important;
     padding-left: 5px;
     border-radius: 0 !important;
-    transition: all 400ms;
+    transition: all .4s;
 }
 
 .footer-social .social-container .pluso-wrap a {
     margin: 0 5px;
-    background-image: url("../img/share-buttons.svg");
-    transition: opacity .4s;
     border: 2px solid #fff;
     width: 40px;
     height: 40px;
+    background: #151416;
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-twitter {
-    background-position: -37px -57px;
-    transition: .3s cubic-bezier(.46, .09, .24, .99);
+    background: url("../img/share-buttons.svg") no-repeat -30px -23px;
+    transition: .25s cubic-bezier(.46, .09, .24, .99);
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-twitter:hover {
-    background-position: -37px 3px;
-    transition: .15s cubic-bezier(.46, .09, .24, .99);
+    background: #fff url("../img/share-buttons.svg") no-repeat -30px 10px;
+    transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-facebook {
-    background-position: 3px -57px;
-    transition: .3s cubic-bezier(.46, .09, .24, .99);
+    background: url("../img/share-buttons.svg") no-repeat 14px -23px;
+    transition: .25s cubic-bezier(.46, .09, .24, .99);
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-facebook:hover {
-    background-position: 3px 3px;
-    transition: .15s cubic-bezier(.46, .09, .24, .99);
+    background: #fff url("../img/share-buttons.svg") no-repeat 14px 10px;
+    transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-google {
-    background-position: -76px -57px;
-    transition: .3s cubic-bezier(.46, .09, .24, .99);
+    background: url("../img/share-buttons.svg") no-repeat -72px -23px;
+    transition: .25s cubic-bezier(.46, .09, .24, .99);
 }
 
 .footer-social .social-container .pluso-wrap a.pluso-google:hover {
-    background-position: -76px 3px;
-    transition: .15s cubic-bezier(.46, .09, .24, .99);
-}
-
-.footer-social .social-container .pluso-wrap a.pluso-linkedin {
-    background-position: -117px -57px;
+    background: #fff url("../img/share-buttons.svg") no-repeat -72px 10px;
     transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
 
+.footer-social .social-container .pluso-wrap a.pluso-linkedin {
+    background: url("../img/share-buttons.svg") no-repeat -117px -23px;
+    transition: .25s cubic-bezier(.46, .09, .24, .99);
+}
+
 .footer-social .social-container .pluso-wrap a.pluso-linkedin:hover {
-    background-position: -117px 3px;
-    transition: .15s cubic-bezier(.46, .09, .24, .99);
+    background: #fff url("../img/share-buttons.svg") no-repeat -117px 10px;
+    transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
 
 .pluso-more {
@@ -1044,7 +1056,7 @@ footer .case-view__button span .arrow {
     margin-top: 55px;
 }
 
-footer .footer-info {
+footer .footer-case__lower {
     border-top: 2px solid #fff;
     padding: 40px 0 30px;
     font-size: .875em;
@@ -1055,7 +1067,7 @@ footer .footer-info {
     width: 55%;
 }
 
-footer .footer-info span {
+footer .footer-case__lower span {
     padding: 0 10px;
 }
 
