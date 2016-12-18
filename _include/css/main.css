@@ -391,7 +391,7 @@ footer .case-view__button {
 .project--active span .arrow, .contact-submit .arrow, .case-view__button span .arrow {
     float: right;
     position: relative;
-    margin-top: 28px;
+    margin-top: 29px;
     margin-right: 9px;
     transition: transform .2s cubic-bezier(.165, .84, .44, 1) .25s;
 }
@@ -1053,7 +1053,7 @@ footer .case-view__button {
 }
 
 footer .case-view__button span .arrow {
-    margin-top: 55px;
+    margin: 48px 42px 0 0;
 }
 
 footer .footer-case__lower {

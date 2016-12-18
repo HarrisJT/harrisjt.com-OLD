@@ -6,9 +6,9 @@ if (document.documentElement.classList.contains('page--home')) {
   const progressLine = document.getElementById('progress-line');
 
   if (container.addEventListener) {
-    container.addEventListener('mousewheel', throttle(1250, MouseWheelHandler), false);
-    container.addEventListener('DOMMouseScroll', throttle(1250, MouseWheelHandler), false);
-  } else container.attachEvent('onmousewheel', throttle(1250, MouseWheelHandler));
+    container.addEventListener('mousewheel', throttle(1150, MouseWheelHandler), false);
+    container.addEventListener('DOMMouseScroll', throttle(1150, MouseWheelHandler), false);
+  } else container.attachEvent('onmousewheel', throttle(1150, MouseWheelHandler));
 
   function throttle(limit, fn) {
     let wait = false;
@@ -24,7 +24,7 @@ if (document.documentElement.classList.contains('page--home')) {
   }
 
   let currentActive = 0;
-  const projects = document.getElementsByClassName('project');
+  const projects = document.querySelectorAll('.project');
 
   function progress() {
     switch (currentActive) {
@@ -43,7 +43,7 @@ if (document.documentElement.classList.contains('page--home')) {
     }
   }
 
-  controlNext.addEventListener('click', throttle(800, function () {
+  controlNext.addEventListener('click', throttle(925, function () {
     projects[currentActive].classList.remove('project--active');
     if (currentActive !== 3) {
       currentActive++;
@@ -58,7 +58,7 @@ if (document.documentElement.classList.contains('page--home')) {
     progress();
   }));
 
-  controlPrevious.addEventListener('click', throttle(800, function () {
+  controlPrevious.addEventListener('click', throttle(925, function () {
     projects[currentActive].classList.remove('project--active');
     if (currentActive !== 0) {
       currentActive--;
