@@ -2,41 +2,37 @@
 <html lang="en" class="page--home">
 <head>
     <!--TODO: Remove root level robots.txt-->
-    <!--TODO: get rid of console.log stuff in main.js-->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
 
     <title>Home &bull; Harris Thompson | Web Designer and Developer</title>
-
-    <!--LOAD TODO: fonts, script should be async or defer?-->
     <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet"
-          href="//fonts.googleapis.com/css?family=Abril+Fatface%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+          href="//fonts.googleapis.com/css?family=Abril+Fatface%7COpen+Sans:400,600,700">
     <link rel="stylesheet" href="_include/css/main.min.css">
     <script type="text/javascript" src="_include/js/main.min.js" async></script>
 
-
     <link rel="preload" href="_include/img/portfolios/home-port.gif" as="image">
 
-    <!--TODO: google analytics-->
     <link rel="preconnect" href="//www.google-analytics.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
 
 
-    <!--TODO: TWITTER-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@harrisjt_">
+    <meta name="twitter:domain" content="harrisjt.com">
+    <meta name="twitter:creator" content="@harrisjt_">
+    <meta name="twitter:title" content="Home – Harris Thompson, Web Designer and Developer">
+    <meta name="twitter:image" content="https://harrisjt.com/_include/logo.png">
+
     <!--TODO: FACEBOOK-->
 
-    <!--TODO: Favicon
-    <link rel="shortcut icon" href="_include/fav.png">
-    <link rel="apple-touch-icon-precomposed" href="_include/fav.png">
-    <meta name="apple-mobile-web-app-title" content="HarrisJT">
-    -->
-
+    <link rel="shortcut icon" href="_include/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="_include/icon.png">
     <meta name="description"
-          content="Web Designer and Developer in Milwaukee, Wisconsin. Although I specialize in front end web development, I design and develop anything digital including websites, interactives, advertisements, and software.">
+          content="Web Designer and Developer in Milwaukee, Wisconsin. Although I specialize in front end web development, I design and develop anything digital including websites, interactives, and software.">
     <link rel="canonical" href="https://harrisjt.com/">
 
 </head>
@@ -142,8 +138,8 @@
         </section>
         <section class="project">
             <header class="project-info">
-                <h2 class="project-title">Lorem</h2>
-                <a href="casestudy4/" class="project-view">
+                <h2 class="project-title">Technoscope</h2>
+                <a href="technoscope/" class="project-view">
                     <span>View Case Study
                         <span class="arrow" style="width:15px; height:9px;">
                             <svg width="15" height="9">
@@ -158,14 +154,14 @@
                     <div class="screenshot-browser__buttons">
                         <span></span>
                     </div>
-                    <div class="screenshot-browser__bar"><a href="http://lorem.com" target="_blank">www.lorem.org/</a>
+                    <div class="screenshot-browser__bar"><a>www.technoscope.net/</a>
                     </div>
                 </div>
-                <img src="_include/img/casestudy4-overview-screenshot.png" alt="screenshot of casestudy4 homepage"
-                     title="screenshot of casestudy4 homepage"/>
+                <img src="_include/img/technoscope/home-tech.jpg" alt="screenshot of technoscope homepage"
+                     title="screenshot of technoscope homepage"/>
             </figure>
             <span class="project-year">
-                2016
+                2015
             </span>
         </section>
         <div class="project-container__pagination">
@@ -184,6 +180,22 @@
         </div>
     </main>
 </div>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-89144841-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
