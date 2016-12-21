@@ -145,10 +145,13 @@ if (document.documentElement.classList.contains('page--home')) {
   };
 
   const scrollButton = document.querySelector('.scroll-button');
+  const scrollButtonBg = document.querySelector('.scroll-button__bg');
   document.addEventListener('scroll', function () {
-    if (window.pageYOffset > 1150) {
+    if (window.pageYOffset > 1100) {
+      scrollButtonBg.classList.add('scroll-button__bg--active');
       scrollButton.classList.add('scroll-button--active');
     } else {
+      scrollButtonBg.classList.remove('scroll-button__bg--active');
       scrollButton.classList.remove('scroll-button--active');
     }
   });
