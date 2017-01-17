@@ -135,9 +135,12 @@ html:not(.page--case) .mainheader {
 .mainheader li {
     position: relative;
     display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 20px;
     letter-spacing: .35em;
+}
+
+.mainheader li:last-child {
+    margin: 0;
 }
 
 .mainheader-right a {
@@ -236,9 +239,12 @@ html:not(.page--case) .content-container:before {
 
 .project-container__controls a {
     font-size: 1.125em;
-    margin-left: 20px;
     border: none;
     cursor: pointer;
+}
+
+.project-container__controls a:last-child {
+    margin-left: 20px;
 }
 
 .project-container__controls a:hover {
@@ -421,6 +427,8 @@ footer .case-view__button {
     position: absolute;
     top: 20%;
     right: 12%;
+    width: 35%;
+    min-width: 425px;
 }
 
 .project-screenshot img {
@@ -440,14 +448,14 @@ footer .case-view__button {
     padding: 15px;
 }
 
-.screenshot-browser__buttons {
+.browser__buttons {
     float: left;
     width: 50px;
     height: 10px;
     position: relative;
 }
 
-.screenshot-browser .screenshot-browser__buttons span {
+.screenshot-browser .browser__buttons span {
     position: absolute;
     display: block;
     width: 14px;
@@ -460,7 +468,7 @@ footer .case-view__button {
     background-color: #171B1F;
 }
 
-.screenshot-browser .screenshot-browser__buttons span:after, .screenshot-browser .screenshot-browser__buttons span:before {
+.screenshot-browser .browser__buttons span:after, .screenshot-browser .browser__buttons span:before {
     content: "";
     position: absolute;
     display: block;
@@ -471,15 +479,15 @@ footer .case-view__button {
     background-color: #171B1F;
 }
 
-.screenshot-browser .screenshot-browser__buttons span:before {
+.screenshot-browser .browser__buttons span:before {
     left: -20px;
 }
 
-.screenshot-browser .screenshot-browser__buttons span:after {
+.screenshot-browser .browser__buttons span:after {
     right: -20px;
 }
 
-.screenshot-browser .screenshot-browser__bar {
+.screenshot-browser .browser__bar {
     position: relative;
     display: block;
     overflow: hidden;
@@ -491,7 +499,7 @@ footer .case-view__button {
     background-clip: padding-box;
 }
 
-.screenshot-browser__bar a {
+.browser__bar a {
     color: rgba(255, 255, 255, .4);
     font-size: .875em;
     position: relative;
@@ -501,11 +509,11 @@ footer .case-view__button {
     border: none;
 }
 
-.screenshot-browser__bar:hover a {
+.browser__bar:hover a {
     color: rgba(255, 255, 255, .65);
 }
 
-.screenshot-browser__bar a:hover {
+.browser__bar a:hover {
     border: none;
 }
 
@@ -1105,9 +1113,102 @@ footer .footer-case__lower span {
 /* ---------------------------------------
    Mobile.
    --------------------------------------- */
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1600px) {
+    .project-title {
+        font-size: 4vw;
+    }
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 1090px) {
+    .project-title {
+        font-size: 4em;
+    }
 
+    .project-screenshot {
+        top: 49%;
+        left: 8.5%;
+        margin: 0;
+        width: 430px;
+    }
+
+    .screenshot-browser {
+        display: none;
+    }
+
+    .project--active .project-info {
+        top: 15%;
+    }
+
+    html:not(.page--case) .content-container:before {
+        content: none;
+    }
+}
+
+@media screen and (max-width: 902px) {
+    .mainheader-right {
+        padding: 54px 3.846153846% 54px 0;
+    }
+
+    .mainheader li {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .mainheader-left {
+        width: 100%;
+        padding-top: 19px;
+    }
+
+    .mainheader-right {
+        text-align: left;
+        float: left;
+        width: 100%;
+        padding: 27px 0 0 3.846153846%;
+    }
+
+    .project-title {
+        font-size: 10vw;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .project-screenshot {
+        width: 85%;
+        min-width: 85%;
+    }
+
+    .project-container__pagination {
+        left: 5.1%;
+    }
+
+    .progress-container {
+        display: none;
+    }
+
+    .project-container__scroll-indicator {
+        display: none;
+    }
+
+    .project-container__controls {
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 200px;
+        text-align: center;
+    }
+
+    .project-container__controls a {
+        font-size: 1.375em;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    html:not(.page--case) body:before {
+        content: none;
+    }
+
+    html:not(.page--case) .mainheader {
+        width: 100%;
+    }
 }
