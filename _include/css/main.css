@@ -558,6 +558,7 @@ footer .case-view__button {
     position: absolute;
     top: 22%;
     right: 12%;
+    z-index: 20;
 }
 
 .about-experiences, .about-social {
@@ -1164,7 +1165,7 @@ footer .footer-case__lower span {
         text-align: left;
         float: left;
         width: 100%;
-        padding: 27px 0 0 3.846153846%;
+        padding: 29px 0 0 3.846153846%;
     }
 
     .project-title {
@@ -1178,8 +1179,26 @@ footer .footer-case__lower span {
         min-width: 85%;
     }
 
+    .project-year {
+        display: none;
+    }
+
+    .project--active .project-info {
+        left: 0;
+        width: 100%;
+    }
+
+    .project--active .project-view {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .project-title {
+        text-align: center;
+    }
+
     .project-container__pagination {
-        left: 5.1%;
+        display: none;
     }
 
     .progress-container {
