@@ -47,7 +47,6 @@ main a:hover {
 body {
     font-family: 'Open Sans', Arial, sans-serif;
     color: #fff;
-    text-rendering: optimizeLegibility;
     margin: 0;
 }
 
@@ -80,7 +79,7 @@ html:not(.page--case) .mainheader {
 }
 
 .page--case .mainheader-left {
-    padding: 36px 2.5%;
+    padding: 33px 2.5%;
 }
 
 .mainheader-center {
@@ -97,24 +96,33 @@ html:not(.page--case) .mainheader {
 
 .mainheader-left {
     float: left;
-    width: 50%;
-    height: 50px;
-    padding: 36px 3.84615384615%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
+    padding: 33px 0 0 3.84615384615%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
 }
 
 .mainheader-right {
     float: right;
-    width: 50%;
-    height: 50px;
     text-align: right;
-    padding: 54px 3.846153846%;
+    padding: 54px 3.846153846% 0 0;
 }
 
 .page--case .mainheader-right {
     padding: 0 2.5%;
 }
 
-.mainheader a, .mainheader h1, .mainheader p {
+.mainheader-left__info {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 8px;
+}
+
+.mainheader-left__logo {
+    margin-right: 3px;
+    height: auto;
+    width: 115px;
+    display: inline-block;
+}
+
+.mainheader a, .mainheader h1 {
     font-size: 1.25em;
     margin: 0;
     padding: 0;
@@ -533,6 +541,10 @@ footer .case-view__button {
     content: 'hello';
 }
 
+.page--about .content-info, .page--about .project--active {
+    z-index: auto;
+}
+
 .content-info:before {
     font-size: 27em;
     font-weight: 800;
@@ -554,11 +566,18 @@ footer .case-view__button {
     margin-bottom: 4%;
 }
 
+.page--about .content-text {
+    width: 650px;
+}
+
 .about-photo {
     position: absolute;
     top: 22%;
     right: 12%;
     z-index: 20;
+    height: auto;
+    max-width: 382px;
+    width: 100%;
 }
 
 .about-experiences, .about-social {
@@ -595,11 +614,15 @@ footer .case-view__button {
 }
 
 .about-year {
-    width: 93px;
+    min-width: 93px;
+}
+
+.about-position {
+    min-width: 280px;
 }
 
 .about-social__item, .case-services__item, .case-date__item {
-    width: 195px;
+    min-width: 195px;
 }
 
 .content-info br {
@@ -1115,12 +1138,35 @@ footer .footer-case__lower span {
    Mobile.
    --------------------------------------- */
 @media screen and (max-width: 1600px) {
+    /*homepage*/
     .project-title {
         font-size: 4vw;
+    }
+
+}
+
+@media screen and (max-width: 1380px) {
+    .about-photo {
+        right: 3%;
+        top: 19%;
+        width: 25%;
+    }
+
+    .page--about .content-info:before {
+        font-size: 22em;
+        left: -40%;
+        top: -7%;
+    }
+
+    .content-info {
+        top: 0;
+        margin-top: 7.3%;
     }
 }
 
 @media screen and (max-width: 1090px) {
+
+    /*homepage*/
     .project-title {
         font-size: 4em;
     }
@@ -1143,37 +1189,115 @@ footer .footer-case__lower span {
     html:not(.page--case) .content-container:before {
         content: none;
     }
-}
 
-@media screen and (max-width: 902px) {
-    .mainheader-right {
-        padding: 54px 3.846153846% 54px 0;
+    /*about*/
+    .about-photo {
+        display: none;
     }
 
-    .mainheader li {
-        margin-right: 10px;
+    .page--about .content-text {
+        width: 650px;
     }
+
+    /*contact*/
+    .contactform {
+        width: 85%;
+    }
+
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 985px) {
     .mainheader-left {
-        width: 100%;
         padding-top: 19px;
+        width: 100%;
     }
 
     .mainheader-right {
         text-align: left;
         float: left;
-        width: 100%;
-        padding: 29px 0 0 3.846153846%;
+        padding: 2px 0 0 3.846153846%;
     }
 
-    .project-title {
+    .mainheader li {
+        margin-right: 10px;
+    }
+
+    /*contact & about*/
+    .contactform:before, .page--about .content-info:before {
+        content: none;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+    /*homepage*/
+    .project-title, .content-title {
         font-size: 10vw;
+    }
+
+    /*about*/
+    .content-info {
+        width: 100%;
+    }
+
+    .page--about .content-text {
+        width: 83%;
+    }
+
+    /*contact*/
+    .page--contact .content-container {
+        overflow-x: hidden;
+    }
+
+    .contactform {
+        width: 100%;
+    }
+
+    #contact-left, #contact-right {
+        float: none;
+        width: 83%;
+        margin: 0;
+    }
+
+    .contactform-group {
+        display: inline-block;
+        width: 45%;
+    }
+
+    .contactform-group:first-of-type {
+        margin-right: 6%;
+    }
+
+    input {
+        margin-bottom: 19px;
+    }
+
+    #subject, label[for=subject] {
+        display: none;
+    }
+
+    textarea {
+        margin: 10px 0 12px 0;
     }
 }
 
 @media screen and (max-width: 545px) {
+
+    html:not(.page--case) body:before {
+        content: none;
+    }
+
+    html:not(.page--case) .mainheader {
+        width: 100%;
+    }
+
+    .mainheader-left, .mainheader-right {
+        text-align: center;
+        float: none;
+        padding-left: 0;
+    }
+
+    /*homepage*/
     .project-screenshot {
         width: 85%;
         min-width: 85%;
@@ -1220,14 +1344,47 @@ footer .footer-case__lower span {
     .project-container__controls a {
         font-size: 1.375em;
     }
-}
 
-@media screen and (max-width: 375px) {
-    html:not(.page--case) body:before {
-        content: none;
+    /*about*/
+    .page--about .content-text {
+        width: 89%;
     }
 
-    html:not(.page--case) .mainheader {
-        width: 100%;
+    .about-social__item, .case-services__item, .case-date__item {
+        min-width: 105px;
+    }
+
+    /*contact*/
+    textarea, input {
+        font-size: 1.063em;
+    }
+
+    #message {
+        min-height: 175px;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    .about-experiences {
+        display: none;
+    }
+
+    .about-social {
+        margin: 0;
+    }
+
+    .about-social span {
+        padding-left: 93px;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .mainheader-left__logo {
+        display: none;
+    }
+
+    #message {
+        min-height: 145px;
     }
 }
