@@ -1020,7 +1020,7 @@ footer div {
     line-height: 1.5;
 }
 
-footer a:hover {
+.footer-contact a:hover {
     border-bottom: 3px solid #D9FB19;
 }
 
@@ -1031,74 +1031,41 @@ footer a:hover {
     font-size: 1.25em;
 }
 
-.social-container {
-    margin-top: 25px;
-}
-
-.footer-social .social-container .pluso-wrap {
-    padding: 0;
-    margin: 0 auto;
-}
-
-.footer-social .social-container .pluso-wrap > div {
-    margin-right: 15px !important;
-    margin-bottom: 10px;
-    background: none !important;
+.social-buttons {
+    margin: 25px 15px 10px 0;
+    display: block;
+    background: none;
     padding-left: 5px;
-    border-radius: 0 !important;
     transition: all .4s;
 }
 
-.footer-social .social-container .pluso-wrap a {
+.footer-social .social-buttons a {
+    display: inline-block;
     margin: 0 5px;
     border: 2px solid #fff;
     width: 40px;
     height: 40px;
     background: #151416;
+    cursor: pointer;
 }
 
-.footer-social .social-container .pluso-wrap a.pluso-twitter {
-    background: url("../img/share-buttons.svg") no-repeat -30px -23px;
+.social-buttons a.social-buttons__twitter {
+    background: url("../img/share-buttons.svg") no-repeat 7px -25px;
     transition: .25s cubic-bezier(.46, .09, .24, .99);
 }
 
-.footer-social .social-container .pluso-wrap a.pluso-twitter:hover {
-    background: #fff url("../img/share-buttons.svg") no-repeat -30px 10px;
+.social-buttons a.social-buttons__twitter:hover {
+    background: #fff url("../img/share-buttons.svg") no-repeat 7px 8px;
     transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
-
-.footer-social .social-container .pluso-wrap a.pluso-facebook {
-    background: url("../img/share-buttons.svg") no-repeat 14px -23px;
+.social-buttons a.social-buttons__linkedin {
+    background: url("../img/share-buttons.svg") no-repeat -34px -26px;
     transition: .25s cubic-bezier(.46, .09, .24, .99);
 }
 
-.footer-social .social-container .pluso-wrap a.pluso-facebook:hover {
-    background: #fff url("../img/share-buttons.svg") no-repeat 14px 10px;
+.social-buttons a.social-buttons__linkedin:hover {
+    background: #fff url("../img/share-buttons.svg") no-repeat -34px 7px;
     transition: .3s cubic-bezier(.46, .09, .24, .99);
-}
-
-.footer-social .social-container .pluso-wrap a.pluso-google {
-    background: url("../img/share-buttons.svg") no-repeat -72px -23px;
-    transition: .25s cubic-bezier(.46, .09, .24, .99);
-}
-
-.footer-social .social-container .pluso-wrap a.pluso-google:hover {
-    background: #fff url("../img/share-buttons.svg") no-repeat -72px 10px;
-    transition: .3s cubic-bezier(.46, .09, .24, .99);
-}
-
-.footer-social .social-container .pluso-wrap a.pluso-linkedin {
-    background: url("../img/share-buttons.svg") no-repeat -117px -23px;
-    transition: .25s cubic-bezier(.46, .09, .24, .99);
-}
-
-.footer-social .social-container .pluso-wrap a.pluso-linkedin:hover {
-    background: #fff url("../img/share-buttons.svg") no-repeat -117px 10px;
-    transition: .3s cubic-bezier(.46, .09, .24, .99);
-}
-
-.pluso-more {
-    display: none !important;
 }
 
 .footer-next {

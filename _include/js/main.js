@@ -6,19 +6,20 @@ const HJT = {
       HJT.addProjectToggler();
     } else if (document.documentElement.classList.contains('page--case')) {
       HJT.addScrollToTop();
+      HJT.addSocialSharing();
     }
 
     window.onload = function () {
-      HJT.installServiceWorker();
-      HJT.addAnalytics();
+      //HJT.installServiceWorker();
+      //HJT.addAnalytics();
     };
   },
 
-  addEvent: function (el, type, handler) {
+  addEvent: function (el, type, func) {
     if (el.attachEvent) {
-      el.attachEvent('on' + type, handler);
+      el.attachEvent('on' + type, func);
     } else {
-      el.addEventListener(type, handler);
+      el.addEventListener(type, func);
     }
   },
 
@@ -140,12 +141,67 @@ const HJT = {
     });
   },
 
+  addSocialSharing: function () {
+    const twitterButton = document.querySelector('.social-buttons__twitter');
+    const linkedinButton = document.querySelector('.social-buttons__linkedin');
+    const twitter = {
+      shareUrl: 'https://twitter.com/intent/tweet/',
+      params: {
+        text: document.title,
+        url: window.location.href,
+      },
+    };
+    const linkedin = {
+      shareUrl: 'https://www.linkedin.com/shareArticle',
+      params: {
+        mini: true,
+        url: window.location.href,
+        title: document.title,
+      },
+    };
+    function buildWindow(site) {
+      const p = site.params;
+      const keys = Object.keys(p);
+      let str = keys.length > 0 ? '?' : '';
+      for (let i = 0; i < keys.length; i++) {
+        if (str !== '?') {
+          str += '&';
+        }
+
+        if (p[keys[i]]) {
+          str += keys[i] + '=' + encodeURIComponent(p[keys[i]]);
+          console.log(str);
+        }
+      }
+
+      site.shareUrl += str;
+
+      const left = window.innerWidth / 2 - 600 / 2 + window.screenX;
+      const top = window.innerHeight / 2 - 480 / 2 + window.screenY;
+      const popParams = `scrollbars=no,width=600,height=480,top=${top},left=${left}`;
+      const newWindow = window.open(site.shareUrl, '', popParams);
+
+      if (window.focus) {
+        newWindow.focus();
+      }
+    }
+
+    HJT.addEvent(twitterButton, 'click', function () {
+      buildWindow(twitter);
+    });
+
+    HJT.addEvent(linkedinButton, 'click', function () {
+      buildWindow(linkedin);
+    });
+
+  },
+
   installServiceWorker: function () {
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register('/harrisjt.com/sw.js');
       HJT.addEvent(window, 'load', function () {
         if (navigator.serviceWorker.controller) {
-          navigator.serviceWorker.controller.postMessage({command: 'trimCaches'});
+          navigator.serviceWorker.controller.postMessage({ command: 'trimCaches' });
         }
       });
     }
@@ -212,7 +268,7 @@ const HJT = {
     };
 
     const sendInitialPageview = () => {
-      ga('send', 'pageview', {[dimensions.HIT_SOURCE]: 'pageload'});
+      ga('send', 'pageview', { [dimensions.HIT_SOURCE]: 'pageload' });
     };
 
     const sendNavigationTimingMetrics = () => {
