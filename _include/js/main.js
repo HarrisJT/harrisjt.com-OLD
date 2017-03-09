@@ -8,7 +8,10 @@ const HJT = {
       HJT.addScrollToTop();
     }
 
-    HJT.installServiceWorker();
+    window.onload = function () {
+      HJT.installServiceWorker();
+      HJT.addAnalytics();
+    };
   },
 
   addEvent: function (el, type, handler) {
@@ -46,9 +49,14 @@ const HJT = {
     const projects = Array.from(document.querySelectorAll('.project'));
 
     if (container.addEventListener) {
-      container.addEventListener('mousewheel', throttle(MouseWheelHandler, 1150), false);
-      container.addEventListener('DOMMouseScroll', throttle(MouseWheelHandler, 1150), false);
-    } else container.attachEvent('onmousewheel', throttle(MouseWheelHandler, 1150));
+      HJT.addEvent(container, 'mousewheel', throttle(MouseWheelHandler, 1150));
+      HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1150));
+    } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1150));
+
+    // if (container.addEventListener) {
+    //   container.addEventListener('mousewheel', throttle(MouseWheelHandler, 1150), false);
+    //   container.addEventListener('DOMMouseScroll', throttle(MouseWheelHandler, 1150), false);
+    // } else container.attachEvent('onmousewheel', throttle(MouseWheelHandler, 1150));
 
     HJT.addEvent(controlNext, 'click', throttle(function () {
       HJT.removeClass(projects[0], 'project--active');
@@ -107,7 +115,7 @@ const HJT = {
       function tick() {
         currentTime += 1 / 60;
 
-        const p = currentTime / 1.25; //1.25 is how long for animation to take
+        const p = currentTime / 1.25; // 1.25 is how long for animation to take
         const t = ease(p);
 
         if (p < 1) {
@@ -134,23 +142,117 @@ const HJT = {
 
   installServiceWorker: function () {
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/harrisjt.com/sw.js', {
-        scope: './',
-      });
-      window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/harrisjt.com/sw.js');
+      HJT.addEvent(window, 'load', function () {
         if (navigator.serviceWorker.controller) {
           navigator.serviceWorker.controller.postMessage({command: 'trimCaches'});
         }
       });
     }
   },
-};
 
-document.addEventListener('DOMContentLoaded', function () {
-  if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
-    HJT.init();
-  }
-});
+  addAnalytics: function () {
+    const TRACKING_ID = 'UA-89144841-1';
+    const TRACKING_VERSION = '1';
+    const NULL_VALUE = '(not set)';
+    const dimensions = {
+      TRACKING_VERSION: 'dimension1',
+      CLIENT_ID: 'dimension2',
+      WINDOW_ID: 'dimension3',
+      HIT_ID: 'dimension4',
+      HIT_TIME: 'dimension5',
+      HIT_TYPE: 'dimension6',
+      HIT_SOURCE: 'dimension7',
+      VISIBILITY_STATE: 'dimension8',
+    };
+
+    const metrics = {
+      RESPONSE_END_TIME: 'metric1',
+      DOM_LOAD_TIME: 'metric2',
+      WINDOW_LOAD_TIME: 'metric3',
+    };
+
+    const init = () => {
+      window.ga = window.ga || ((...args) => (ga.q = ga.q || []).push(args));
+      createTracker();
+      trackCustomDimensions();
+      sendInitialPageview();
+      sendNavigationTimingMetrics();
+    };
+
+    const createTracker = () => {
+      ga('create', TRACKING_ID, 'auto');
+      ga('set', 'transport', 'beacon');
+    };
+
+    const trackCustomDimensions = () => {
+      Object.keys(dimensions).forEach((key) => {
+        ga('set', dimensions[key], NULL_VALUE);
+      });
+      ga((tracker) => {
+        tracker.set({
+          [dimensions.TRACKING_VERSION]: TRACKING_VERSION,
+          [dimensions.CLIENT_ID]: tracker.get('clientId'),
+          [dimensions.WINDOW_ID]: uuid(),
+        });
+      });
+
+      ga((tracker) => {
+        const originalBuildHitTask = tracker.get('buildHitTask');
+        tracker.set('buildHitTask', (model) => {
+          const qt = model.get('queueTime') || 0;
+          model.set(dimensions.HIT_TIME, String(new Date - qt), true);
+          model.set(dimensions.HIT_ID, uuid(), true);
+          model.set(dimensions.HIT_TYPE, model.get('hitType'), true);
+          model.set(dimensions.VISIBILITY_STATE, document.visibilityState, true);
+
+          originalBuildHitTask(model);
+        });
+      });
+    };
+
+    const sendInitialPageview = () => {
+      ga('send', 'pageview', {[dimensions.HIT_SOURCE]: 'pageload'});
+    };
+
+    const sendNavigationTimingMetrics = () => {
+      if (!(window.performance && window.performance.timing)) return;
+      if (document.readyState != 'complete') {
+        window.addEventListener('load', sendNavigationTimingMetrics);
+        return;
+      }
+
+      const nt = performance.timing;
+      const navStart = nt.navigationStart;
+
+      const responseEnd = Math.round(nt.responseEnd - navStart);
+      const domLoaded = Math.round(nt.domContentLoadedEventStart - navStart);
+      const windowLoaded = Math.round(nt.loadEventStart - navStart);
+
+      const allValuesAreValid = (...values) => {
+        return values.every((value) => value > 0 && value < 6e6);
+      };
+
+      if (allValuesAreValid(responseEnd, domLoaded, windowLoaded)) {
+        ga('send', 'event', {
+          eventCategory: 'Navigation Timing',
+          eventAction: 'track',
+          nonInteraction: true,
+          [metrics.RESPONSE_END_TIME]: responseEnd,
+          [metrics.DOM_LOAD_TIME]: domLoaded,
+          [metrics.WINDOW_LOAD_TIME]: windowLoaded,
+        });
+      }
+    };
+
+    const uuid = function b(a) {
+      return a ? (a ^ Math.random() * 16 >> a / 4).toString(16) :
+          ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, b);
+    };
+
+    init();
+  },
+};
 
 // My simplified implementation of the Lodash throttle & debounce.
 function throttle(func, wait) {
@@ -246,4 +348,10 @@ function throttle(func, wait) {
 
   return throttled;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+    HJT.init();
+  }
+});
 

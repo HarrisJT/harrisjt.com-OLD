@@ -1,16 +1,16 @@
 'use strict';
 
-const version = 'v2.020::';
+const version = 'v2.030::';
 const staticCacheName = version + 'static';
 const pagesCacheName = version + 'pages';
 const imagesCacheName = version + 'images';
 const offlinePages = [
   '/harrisjt.com/',
-  '/harrisjt.com//about/',
-  '/harrisjt.com//deeptunnelmke/',
-  '/harrisjt.com//feelthebern/',
-  '/harrisjt.com//portfolios/',
-  '/harrisjt.com//technoscope/',
+  '/harrisjt.com/about/',
+  '/harrisjt.com/deeptunnelmke/',
+  '/harrisjt.com/feelthebern/',
+  '/harrisjt.com/portfolios/',
+  '/harrisjt.com/technoscope/',
 ];
 
 function updateStaticCache() {
