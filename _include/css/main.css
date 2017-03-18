@@ -79,14 +79,15 @@ html:not(.page--case) .mainheader {
 }
 
 .page--case .mainheader-left {
-    padding: 33px 2.5%;
+    width: 50%;
+    padding: 33px 0 0 2.5%;
 }
 
 .mainheader-center {
     float: left;
     height: 50px;
     padding: 54px 0 0;
-    margin-left: -65px;
+    margin-left: -53px;
 }
 
 .mainheader {
@@ -106,7 +107,7 @@ html:not(.page--case) .mainheader {
 }
 
 .page--case .mainheader-right {
-    padding: 0 2.5%;
+    padding-right: 2.5%;
 }
 
 .mainheader-left__info {
@@ -566,9 +567,6 @@ footer .case-view__button {
     font-size: 1.063em;
     line-height: 1.5;
     margin-bottom: 4%;
-}
-
-.page--about .content-text {
     width: 650px;
 }
 
@@ -772,6 +770,7 @@ input {
     position: absolute;
     left: 0;
     height: 100%;
+    min-height: 784px;
     width: 2.5%;
     top: 0;
     z-index: 25;
@@ -783,49 +782,55 @@ input {
     top: 130px;
     bottom: 36px;
     position: absolute;
-    min-height: 81.47368421%;
+    min-height: 784px;
 }
 
 .case-overview {
     background: #151416;
     height: 100%;
-    margin-bottom: 100px;
 }
 
 .case-view {
     position: absolute;
-    left: 48%;
+    margin-left: 290px;
     bottom: 15%;
 }
 
 .case-overview .project-screenshot {
     top: 17.8%;
     right: 9%;
-    width: 660px;
+    width: 33%;
     height: 100%;
 }
 
+.case-overview .project-container__scroll-indicator {
+    position: relative;
+    top: 91.07%;
+}
+
 .case-analysis {
+    margin-top: -25%;
     background: #151416;
     left: 2.5%;
     right: 2.5%;
-    padding: 475px 0 50px;
+    padding: 20% 0 50px;
 }
 
-.case-graphics__logo {
+.case-logo {
     display: block;
-    margin: 0 auto 30px;
+    margin: 30px auto;
 }
 
-.tech .case-graphics__logo {
+.tech .case-logo {
     background: #4E5056;
     padding: 15px 20px 25px;
 }
 
-.case-graphics__mockup {
+.case-mockup {
     display: block;
-    margin: 0 auto -450px;
+    margin: 0 auto;
     width: 45%;
+    min-width: 300px;
 }
 
 .case-showcase {
@@ -994,7 +999,6 @@ figcaption {
    --------------------------------------- */
 
 footer {
-
     margin-top: 50px;
     background: #151416;
     left: 2.5%;
@@ -1018,6 +1022,7 @@ footer div {
     font: 1.75em 'Abril Fatface', Georgia, serif;
     letter-spacing: .025em;
     line-height: 1.5;
+    min-width: 33%;
 }
 
 .footer-contact a:hover {
@@ -1025,9 +1030,7 @@ footer div {
 }
 
 .footer-social {
-    margin: 0 auto;
-    display: block;
-    width: 50%;
+    min-width: 33%;
     font-size: 1.25em;
 }
 
@@ -1058,6 +1061,7 @@ footer div {
     background: #fff url("../img/share-buttons.svg") no-repeat 7px 8px;
     transition: .3s cubic-bezier(.46, .09, .24, .99);
 }
+
 .social-buttons a.social-buttons__linkedin {
     background: url("../img/share-buttons.svg") no-repeat -34px -26px;
     transition: .25s cubic-bezier(.46, .09, .24, .99);
@@ -1078,17 +1082,18 @@ footer div {
     top: 0;
 }
 
-footer .case-view__button {
-    width: 500px;
+.footer-next .case-view__button {
+    width: 100%;
+    min-width: 380px;
     line-height: 100px;
     height: 100px;
 }
 
-footer .case-view__button span .arrow {
-    margin: 48px 42px 0 0;
+.footer-next .case-view__button span .arrow {
+    margin: 46px 3.75% 0 0;
 }
 
-footer .footer-case__lower {
+.footer-case__lower {
     border-top: 2px solid #fff;
     padding: 40px 0 30px;
     font-size: .875em;
@@ -1099,7 +1104,7 @@ footer .footer-case__lower {
     width: 55%;
 }
 
-footer .footer-case__lower span {
+.footer-case__lower span {
     padding: 0 10px;
 }
 
@@ -1112,6 +1117,11 @@ footer .footer-case__lower span {
         font-size: 4vw;
     }
 
+    .case-overview .project-screenshot {
+        right: 3%;
+        top: 19%;
+    }
+
 }
 
 @media screen and (max-width: 1380px) {
@@ -1121,7 +1131,7 @@ footer .footer-case__lower span {
         width: 25%;
     }
 
-    .page--about .content-info:before {
+    .content-info:before {
         font-size: 22em;
         left: -40%;
         top: -7%;
@@ -1131,6 +1141,11 @@ footer .footer-case__lower span {
         top: 0;
         margin-top: 7.3%;
     }
+
+    .page--case .project-screenshot {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 1090px) {
@@ -1164,13 +1179,30 @@ footer .footer-case__lower span {
         display: none;
     }
 
-    .page--about .content-text {
-        width: 650px;
-    }
-
     /*contact*/
     .contactform {
         width: 85%;
+    }
+
+    /*case*/
+    .mainheader-center {
+        display: none;
+    }
+
+    .case-choice p {
+        width: 92%;
+    }
+
+    .footer-case__upper {
+        flex-direction: column;
+    }
+
+    .footer-case__upper > div:not(.footer-next) {
+        margin-bottom: 35px;
+    }
+
+    .footer-next .case-view__button {
+        width: 60%;
     }
 
 }
@@ -1181,7 +1213,11 @@ footer .footer-case__lower span {
         width: 100%;
     }
 
-    .mainheader-right {
+    .page--case .mainheader-left {
+        width: auto;
+    }
+
+    html:not(.page--case) .mainheader-right {
         text-align: left;
         float: left;
         padding: 2px 0 0 3.846153846%;
@@ -1199,18 +1235,17 @@ footer .footer-case__lower span {
 
 @media screen and (max-width: 760px) {
 
-    /*homepage*/
-    .project-title, .content-title {
-        font-size: 10vw;
+    .content-text {
+        width: 89%;
     }
 
-    /*about*/
     .content-info {
         width: 100%;
     }
 
-    .page--about .content-text {
-        width: 83%;
+    /*homepage*/
+    .project-title, .content-title {
+        font-size: 10vw;
     }
 
     /*contact*/
@@ -1250,6 +1285,31 @@ footer .footer-case__lower span {
     }
 }
 
+@media screen and (max-width: 595px) {
+    .page--case .mainheader-left, .page--case .mainheader-right {
+        text-align: center;
+        float: none;
+        padding-left: 0;
+    }
+
+    .page--case .mainheader-left {
+        padding-top: 19px;
+    }
+
+    .page--case .mainheader-right {
+        padding: 2px 0 0 0;
+    }
+
+    .scroll-button__bg, .scroll-button {
+        display: none;
+    }
+
+    .case-view {
+        display: none;
+    }
+
+}
+
 @media screen and (max-width: 545px) {
 
     html:not(.page--case) body:before {
@@ -1260,7 +1320,7 @@ footer .footer-case__lower span {
         width: 100%;
     }
 
-    .mainheader-left, .mainheader-right {
+    .mainheader-left, html:not(.page--case) .mainheader-right {
         text-align: center;
         float: none;
         padding-left: 0;
@@ -1315,10 +1375,6 @@ footer .footer-case__lower span {
     }
 
     /*about*/
-    .page--about .content-text {
-        width: 89%;
-    }
-
     .about-social__item, .case-services__item, .case-date__item {
         min-width: 105px;
     }
@@ -1330,6 +1386,17 @@ footer .footer-case__lower span {
 
     #message {
         min-height: 175px;
+    }
+
+    /*case*/
+    .footer-next .case-view__button {
+        min-width: 270px;
+        padding: 0 5px;
+        font-size: .9em;
+    }
+
+    .footer-case__upper {
+        padding: 45px 4.5% 55px;
     }
 
 }
@@ -1346,6 +1413,10 @@ footer .footer-case__lower span {
     .about-social span {
         padding-left: 93px;
     }
+
+    .case-overview .content-text {
+        font-size: .95em;
+    }
 }
 
 @media screen and (max-width: 335px) {
@@ -1355,5 +1426,9 @@ footer .footer-case__lower span {
 
     #message {
         min-height: 145px;
+    }
+
+    .footer-case__lower span {
+        padding: 0 5px;
     }
 }
