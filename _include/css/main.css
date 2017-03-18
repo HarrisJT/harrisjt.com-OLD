@@ -45,7 +45,7 @@ main a:hover {
 }
 
 body {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     color: #fff;
     margin: 0;
 }
@@ -315,7 +315,7 @@ html:not(.page--case) .content-container:before {
     transition: transform .7s cubic-bezier(.46, .09, .24, .99) 50ms;
 }
 
-.project--active .project-view {
+.project--active .project-view, .mini .project-view {
     transform: translate(0);
 }
 
@@ -339,7 +339,7 @@ html:not(.page--case) .content-container:before {
     margin: 0 0 40px;
 }
 
-.project--active .project-view, .contact-submit, .case-view__button {
+.project--active .project-view, .contact-submit, .case-view__button, .mini .project-view {
     display: inline-block;
     position: relative;
     text-align: center;
@@ -353,7 +353,7 @@ html:not(.page--case) .content-container:before {
     font-size: 1.063em;
 }
 
-.project--active .project-view:after, .contact-submit:after, .case-view__button:after, .case-view:after, .next-view:after, .scroll-button:after {
+.project--active .project-view:after, .mini .project-view:after, .contact-submit:after, .case-view__button:after, .case-view:after, .next-view:after, .scroll-button:after {
     content: '';
     position: absolute;
     top: 0;
@@ -380,34 +380,34 @@ footer .case-view__button {
     font-size: 1.1em;
 }
 
-.project--active .project-view:hover:after, .contact-submit:hover:after, .case-view__button:hover:after, .scroll-button:hover:after, .project--active .project-view:focus:after, .contact-submit:focus:after, .case-view__button:focus:after, .scroll-button:focus:after {
+.project--active .project-view:hover:after, .mini .project-view:hover:after, .contact-submit:hover:after, .case-view__button:hover:after, .scroll-button:hover:after, .project--active .project-view:focus:after, .contact-submit:focus:after, .case-view__button:focus:after, .scroll-button:focus:after {
     transform: scale(1);
     transition-delay: 0s;
     z-index: -1;
 }
 
-.project--active .project-view:hover, .contact-submit:hover, .case-view__button:hover, .scroll-button:hover {
+.project--active .project-view:hover, .mini .project-view:hover, .contact-submit:hover, .case-view__button:hover, .scroll-button:hover {
     border-bottom: 2px solid #fff;
 }
 
-.project--active .project-view span, .contact-submit span, .case-view__button span, .scroll-button span {
+.project--active .project-view span, .mini .project-view span, .contact-submit span, .case-view__button span, .scroll-button span {
     transition: color .15s cubic-bezier(.4, 0, .2, 1) .1s;
 }
 
-.project--active .project-view:hover span, .project--active .project-view:focus span, .contact-submit:hover span, .contact-submit:focus span, .case-view__button:hover span, .case-view__button:focus span, .scroll-button:hover span, .scroll-button:focus span {
+.project--active .project-view:hover span, .mini .project-view:hover span, .project--active .project-view:focus span, .contact-submit:hover span, .contact-submit:focus span, .case-view__button:hover span, .case-view__button:focus span, .scroll-button:hover span, .scroll-button:focus span {
     color: #000;
-    transition-delay: 0s;
+    transition-delay: .14s;
 }
 
-.project--active span .arrow, .contact-submit .arrow, .case-view__button span .arrow {
+.project--active span .arrow, .mini span .arrow, .contact-submit .arrow, .case-view__button span .arrow {
     float: right;
     position: relative;
-    margin-top: 29px;
+    margin-top: 28px;
     margin-right: 9px;
     transition: transform .2s cubic-bezier(.165, .84, .44, 1) .25s;
 }
 
-.project--active span .arrow svg, .contact-submit .arrow svg, .case-view__button .arrow svg {
+.project--active span .arrow svg, .mini span .arrow svg, .contact-submit .arrow svg, .case-view__button .arrow svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -419,7 +419,7 @@ footer .case-view__button {
 
 .project-view:hover .arrow svg, .project-view:focus .arrow svg, .contact-submit:hover .arrow svg, .contact-submit:focus .arrow svg, .case-view__button:hover .arrow svg, .case-view__button:focus .arrow svg {
     fill: #000;
-    transition-delay: 0s;
+    transition-delay: .14s;
 }
 
 .project-view:hover .arrow, .project-view:focus .arrow, .contact-submit:hover .arrow, .contact-submit:focus .arrow, .case-view__button:hover .arrow, .case-view__button:focus .arrow {
@@ -588,7 +588,7 @@ footer .case-view__button {
     margin-left: 93px;
 }
 
-.about-experiences span, .case-client, .case-date, .case-services, .case-analysis .case-choice span {
+.about-experiences span, .case-client, .case-date, .case-services, .case-analysis .case-choice > span {
     padding-left: 93px;
 }
 
@@ -599,7 +599,7 @@ footer .case-view__button {
 }
 
 /* TODO: maybe make this a single class? */
-.about-experiences span:before, .about-social span:before, .case-client:before, .case-date span:before, .case-services span:before, .case-analysis .case-choice span:before {
+.about-experiences span:before, .about-social span:before, .case-client:before, .case-date span:before, .case-services span:before, .case-analysis .case-choice > span:before {
     content: ' ';
     position: absolute;
     height: 1px;
@@ -724,7 +724,7 @@ textarea, input {
     border: none;
     outline: none;
     color: #fcfcfc;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 1.25em;
     width: 100%;
 }
@@ -756,12 +756,16 @@ input {
     content: '02';
 }
 
-.dtm .content-info:before {
+.mini .content-info:before {
     content: '03';
 }
 
-.tech .content-info:before {
+.dtm .content-info:before {
     content: '04';
+}
+
+.tech .content-info:before {
+    content: '05';
 }
 
 .page--case:before {
@@ -821,6 +825,11 @@ input {
     margin: 30px auto;
 }
 
+.mini .case-logo, .port .case-logo {
+    width: auto;
+    max-width: 300px;
+}
+
 .tech .case-logo {
     background: #4E5056;
     padding: 15px 20px 25px;
@@ -873,7 +882,7 @@ figcaption {
 }
 
 .case-analysis section {
-    margin: 80px 0 0 8.5%;
+    margin: 100px 0 0 8.5%;
 }
 
 .case-analysis > div {

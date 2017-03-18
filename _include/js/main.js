@@ -25,7 +25,7 @@ const HJT = {
 
   updatePagination: function (el, number, line) {
     number.innerText = el.getAttribute('data-project-number');
-    line.style.height = `${parseInt(el.getAttribute('data-project-number')) * 25}%`;
+    line.style.height = `${parseInt(el.getAttribute('data-project-number')) * 20}%`;
   },
 
   addClass: function (el, className) {
