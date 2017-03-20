@@ -1,0 +1,30 @@
+{
+  "name": "HarrisJT",
+  "version": "2.0.0",
+  "description": "My personal portfolio",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarrisJT/harrisjt.com.git"
+  },
+  "keywords": [
+    "harris",
+    "thompson",
+    "harrisjt",
+    "web"
+  ],
+  "author": "Harris J Thompson",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-babili": "0.0.12",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-csscomb": "^3.0.8"
+  }
+}

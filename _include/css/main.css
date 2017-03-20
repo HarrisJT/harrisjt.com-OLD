@@ -182,7 +182,6 @@ html:not(.page--case) .mainheader {
     bottom: 36px;
     background: #151416;
     position: fixed;
-    min-height: 81.47368421%;
     z-index: 10;
 }
 
@@ -216,7 +215,7 @@ html:not(.page--case) .content-container:before {
     top: 35px;
     width: 1px;
     margin-left: 8px;
-    height: 89.7%;
+    height: calc(100% - 70px);
 }
 
 #progress-line {
@@ -531,10 +530,13 @@ footer .case-view__button {
 /* ---------------------------------------
    About.
    --------------------------------------- */
+.page--about .content-container, .page--about .project--active {
+    overflow-y: auto;
+}
 
 .content-info {
     position: absolute;
-    top: 17%;
+    top: 10%;
     left: 8.5%;
     width: 40%;
     z-index: 20;
@@ -554,7 +556,7 @@ footer .case-view__button {
     color: #1a1b1d;
     position: absolute;
     left: -34%;
-    top: -10%;
+    top: -14%;
     z-index: -1;
 }
 
@@ -666,7 +668,7 @@ footer .case-view__button {
 .contactform {
     position: relative;
     width: 60%;
-    margin: 7.3% 0 0 8.5%;
+    margin: 4.027% 0 0 8.5%;
     height: auto;
 }
 
@@ -695,13 +697,13 @@ fieldset {
 
 #contact-left, #contact-right {
     float: left;
-    width: 35%;
+    width: 28%;
     font-size: 1.063em;
 }
 
 #contact-right {
     margin-left: 6%;
-    width: 59%;
+    width: 63%;
 }
 
 label {
@@ -809,7 +811,7 @@ input {
 
 .case-overview .project-container__scroll-indicator {
     position: relative;
-    top: 91.07%;
+    top: 92%;
 }
 
 .case-analysis {
