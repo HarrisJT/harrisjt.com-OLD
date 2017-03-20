@@ -54,11 +54,6 @@ const HJT = {
       HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1150));
     } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1150));
 
-    // if (container.addEventListener) {
-    //   container.addEventListener('mousewheel', throttle(MouseWheelHandler, 1150), false);
-    //   container.addEventListener('DOMMouseScroll', throttle(MouseWheelHandler, 1150), false);
-    // } else container.attachEvent('onmousewheel', throttle(MouseWheelHandler, 1150));
-
     HJT.addEvent(controlNext, 'click', throttle(function () {
       HJT.removeClass(projects[0], 'project--active');
       projects.push(projects.splice(0, 1)[0]);
@@ -170,7 +165,6 @@ const HJT = {
 
         if (p[keys[i]]) {
           str += keys[i] + '=' + encodeURIComponent(p[keys[i]]);
-          console.log(str);
         }
       }
 
@@ -198,7 +192,9 @@ const HJT = {
 
   installServiceWorker: function () {
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/harrisjt.com/sw.js');
+      navigator.serviceWorker.register('/sw.js', {
+        scope: '/',
+      });
       HJT.addEvent(window, 'load', function () {
         if (navigator.serviceWorker.controller) {
           navigator.serviceWorker.controller.postMessage({ command: 'trimCaches' });

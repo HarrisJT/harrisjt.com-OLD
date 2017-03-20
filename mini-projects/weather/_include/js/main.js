@@ -136,16 +136,16 @@ function weather(units, lat, lon, countryCode) {
       }
 
     } else {
-      console.log('test1');
+      console.log(this.status);
     }
   };
 
   request.onerror = function () {
-    console.log('test2');
+    console.log('Request error');
   };
 
   request.send();
-  location(new google.maps.Geocoder(), lat, lon);
+  getLocation(new google.maps.Geocoder(), lat, lon);
 }
 
 // Format and update the weather-current__wind-time
@@ -229,7 +229,7 @@ function updateTime(time, countryCode) {
 
 }
 
-function location(geocoder, lat, lon) {
+function getLocation(geocoder, lat, lon) {
   const latlng = { lat: parseFloat(lat), lng: parseFloat(lon) };
   var location = document.querySelector('.location__current');
   geocoder.geocode({ location: latlng }, function (results, status) {
