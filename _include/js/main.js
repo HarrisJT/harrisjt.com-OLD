@@ -3,15 +3,16 @@
 const HJT = {
   init: function () {
     if (document.documentElement.classList.contains('page--home')) {
-      HJT.addProjectToggler();
+      HJT.projectToggler();
     } else if (document.documentElement.classList.contains('page--case')) {
-      HJT.addScrollToTop();
-      HJT.addSocialSharing();
+      HJT.lazyLoad();
+      HJT.scrollToTop();
+      HJT.socialSharing();
     }
 
     window.onload = function () {
-      HJT.installServiceWorker();
-      HJT.addAnalytics();
+      // HJT.installServiceWorker();
+      // HJT.addAnalytics();
     };
   },
 
@@ -21,11 +22,6 @@ const HJT = {
     } else {
       el.addEventListener(type, func);
     }
-  },
-
-  updatePagination: function (el, number, line) {
-    number.innerText = el.getAttribute('data-project-number');
-    line.style.height = `${parseInt(el.getAttribute('data-project-number')) * 20}%`;
   },
 
   addClass: function (el, className) {
@@ -41,7 +37,12 @@ const HJT = {
     else el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
   },
 
-  addProjectToggler: function () {
+  updatePagination: function (el, number, line) {
+    number.innerText = el.getAttribute('data-project-number');
+    line.style.height = `${parseInt(el.getAttribute('data-project-number')) * 20}%`;
+  },
+
+  projectToggler: function () {
     const container = document.getElementById('project-container');
     const controlNext = document.getElementById('controls--next');
     const controlPrevious = document.getElementById('controls--previous');
@@ -85,7 +86,11 @@ const HJT = {
     }
   },
 
-  addScrollToTop: function () {
+  lazyLoad: function () {
+
+  },
+
+  scrollToTop: function () {
     const scrollButton = document.querySelector('.scroll-button');
     const scrollButtonBg = document.querySelector('.scroll-button__bg');
 
@@ -111,7 +116,7 @@ const HJT = {
       function tick() {
         currentTime += 1 / 60;
 
-        const p = currentTime / 1.25; // 1.25 is how long for animation to take
+        const p = currentTime / 1.25; // 1.25 is animation time in seconds
         const t = ease(p);
 
         if (p < 1) {
@@ -136,7 +141,7 @@ const HJT = {
     });
   },
 
-  addSocialSharing: function () {
+  socialSharing: function () {
     const twitterButton = document.querySelector('.social-buttons__twitter');
     const linkedinButton = document.querySelector('.social-buttons__linkedin');
     const twitter = {
@@ -154,6 +159,7 @@ const HJT = {
         title: document.title,
       },
     };
+
     function buildWindow(site) {
       const p = site.params;
       const keys = Object.keys(p);
@@ -281,9 +287,7 @@ const HJT = {
       const domLoaded = Math.round(nt.domContentLoadedEventStart - navStart);
       const windowLoaded = Math.round(nt.loadEventStart - navStart);
 
-      const allValuesAreValid = (...values) => {
-        return values.every((value) => value > 0 && value < 6e6);
-      };
+      const allValuesAreValid = (...values) => values.every((value) => value > 0 && value < 6e6);
 
       if (allValuesAreValid(responseEnd, domLoaded, windowLoaded)) {
         ga('send', 'event', {
@@ -405,5 +409,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
     HJT.init();
   }
+  console.info('Designed and Developed by Harris J. Thompson\nTwitter - www.twitter.com/HarrisJT_\nGitHub - www.github.com/HarrisJT');
 });
 

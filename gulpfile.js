@@ -26,7 +26,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('default', gulp.series('js', 'css', function (done) {
-  gulp.watch('_include/js/main.js').on('change', gulp.task('js'));
-  gulp.watch('_include/css/main.css').on('change', gulp.task('css'));
+  gulp.watch('_include/js/main.js', gulp.task('js'));
+  gulp.watch('_include/css/main.css', gulp.task('css'));
   done();
 }));

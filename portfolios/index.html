@@ -28,14 +28,15 @@
 
     <!--TODO: FACEBOOK-->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../_include/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="../_include/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../_include/img/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="../_include/img/manifest.json">
-    <link rel="mask-icon" href="../_include/img/safari-pinned-tab.svg" color="#151416">
-    <link rel="shortcut icon" href="../_include/img/favicon.ico">
-    <meta name="msapplication-config" content="../_include/img/browserconfig.xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#151416">
+    <meta name="apple-mobile-web-app-title" content="HarrisJT">
+    <meta name="application-name" content="HarrisJT">
     <meta name="theme-color" content="#151416">
+
     <meta name="description"
           content="Web Designer and Developer in Milwaukee, Wisconsin. Although I specialize in front end web development, I design and develop anything digital including websites, interactives, and software.">
     <link rel="canonical" href="https://harrisjt.com/portfolios/">
@@ -208,7 +209,8 @@
                 professional and bold, I want the content to be readable for people who must scan portfolios all day or
                 just to appeal to a wide audience I use my popular choice of Open Sans. Open Sans is a very neutral and
                 legible font that plays off the heading font to sum up the whole portfolio design in type.</p>
-            <figure><img src="../_include/img/portfolios/fonts-port.png"
+            <figure class="font-infographic">
+                <img src="../_include/img/portfolios/fonts-port.png"
                          alt="infographic of my font choices for my portfolio"
                          title="infographic of my font choices for my portfolio"/>
                 <figcaption>Fonts for my Current Portfolio</figcaption>
@@ -267,16 +269,32 @@
                 found appealing and spread them amongst the projects to add a “fun” element to the design. On my current
                 portfolio, I took aspects from each and use random but consistent bright colors for links and brand
                 colors when possible.</p>
-            <figure><img src="../_include/img/portfolios/firstcolors-port.jpg"
-                         alt="infographic of my color choices for my first portfolio"
-                         title="infographic of my color choices for my first portfolio"/>
-                <figcaption>Colors for my First Portfolio</figcaption>
-            </figure>
-            <figure><img src="../_include/img/portfolios/secondcolors-port.jpg"
-                         alt="infographic of my color choices for my second portfolio"
-                         title="infographic of my color choices for my second portfolio"/>
-                <figcaption>Colors for my Second Portfolio</figcaption>
-            </figure>
+            <div class="case-palette">
+                <div class="case-color">
+                    <div class="case-color__item"></div>
+                    <h3 class="case-color__name">#FFFFFF</h3>
+                </div>
+                <div class="case-color">
+                    <div class="case-color__item" style="background-color: #151416; border: 1px solid #fff;"></div>
+                    <h3 class="case-color__name">#151416</h3>
+                </div>
+                <div class="case-color">
+                    <div class="case-color__item" style="background-color: #070708"></div>
+                    <h3 class="case-color__name">#070708</h3>
+                </div>
+                <div class="case-color">
+                    <div class="case-color__item" style="background-color: #1A1B1D"></div>
+                    <h3 class="case-color__name">#1A1B1D</h3>
+                </div>
+                <div class="case-color">
+                    <div class="case-color__item" style="background-color: #FF0033"></div>
+                    <h3 class="case-color__name">#FF0033</h3>
+                </div>
+                <div class="case-color">
+                    <div class="case-color__item" style="background-color: #D9FB19"></div>
+                    <h3 class="case-color__name">#D9FB19</h3>
+                </div>
+            </div>
         </section>
     </div>
     <footer>
