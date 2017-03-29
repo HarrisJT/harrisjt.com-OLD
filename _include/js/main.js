@@ -5,7 +5,6 @@ const HJT = {
     if (document.documentElement.classList.contains('page--home')) {
       HJT.projectToggler();
     } else if (document.documentElement.classList.contains('page--case')) {
-      HJT.lazyLoad();
       HJT.scrollToTop();
       HJT.socialSharing();
     }
@@ -84,10 +83,6 @@ const HJT = {
 
       HJT.updatePagination(projects[0], numberPrevious, progressLine);
     }
-  },
-
-  lazyLoad: function () {
-
   },
 
   scrollToTop: function () {
@@ -409,6 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
     HJT.init();
   }
+
   console.info('Designed and Developed by Harris J. Thompson\nTwitter - www.twitter.com/HarrisJT_\nGitHub - www.github.com/HarrisJT');
 });
 

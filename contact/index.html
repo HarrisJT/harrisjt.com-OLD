@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Abril+Fatface">
     <link rel="stylesheet" href="../_include/css/main.min.css">
 
-
     <link rel="preconnect" href="//www.google-analytics.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
-
 
     <script async src="//www.google-analytics.com/analytics.js"></script>
 
@@ -41,57 +39,55 @@
 
 </head>
 <body>
-<div class="container">
-    <header class="mainheader">
-        <div class="mainheader-left">
-            <a href="../"><img src="../_include/img/logo.svg" class="mainheader-left__logo"/></a>
-            <div class="mainheader-left__info">
-                <a href="../"><h1>Harris<span>Thompson</span></h1>
-                    <p>Web Developer</p></a>
-            </div>
+<header class="mainheader">
+    <div class="mainheader-left">
+        <a href="../"><img src="../_include/img/logo.svg" class="mainheader-left__logo"/></a>
+        <div class="mainheader-left__info">
+            <a href="../"><h1>Harris<span>Thompson</span></h1>
+                <p>Web Developer</p></a>
         </div>
-        <nav class="mainheader-right">
-            <ul>
-                <li><a href="../"><span>Home</span></a></li>
-                <li><a href="../about/"><span>About</span></a></li>
-                <li><a href="/contact/"><span>Contact</span></a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="content-container">
-        <form class="contactform" accept-charset="UTF-8"
-              action="https://formspree.io/harris@harrisjt.com" method="POST">
-            <h4 class="content-title">Drop me a line,</h4>
-            <fieldset>
-                <div id="contact-left">
-                    <div class="contactform-item">
-                        <label for="name">Name:</label>
-                        <input name="name" id="name" placeholder="Name" type="text" tabindex="1" required autofocus>
-                    </div>
-                    <div class="contactform-item">
-                        <label for="email">Email:</label>
-                        <input name="email" id="email" placeholder="Email Address" type="email" tabindex="2" required>
-                    </div>
-                    <label for="subject">Subject:</label>
-                    <input name="subject" id="subject" placeholder="Subject" type="text" tabindex="3"/>
+    </div>
+    <nav class="mainheader-right">
+        <ul>
+            <li><a href="../"><span>Home</span></a></li>
+            <li><a href="../about/"><span>About</span></a></li>
+            <li><a href="/contact/"><span>Contact</span></a></li>
+        </ul>
+    </nav>
+</header>
+<main class="content-container">
+    <form class="contactform" accept-charset="UTF-8"
+          action="https://formspree.io/harris@harrisjt.com" method="POST">
+        <h4 class="content-title">Drop me a line,</h4>
+        <fieldset>
+            <div id="contact-left">
+                <div class="contactform-item">
+                    <label for="name">Name:</label>
+                    <input name="name" id="name" placeholder="Name" type="text" tabindex="1" required autofocus>
                 </div>
-                <div id="contact-right">
-                    <label for="message">Message:</label>
-                    <textarea name="message" id="message" placeholder="Message" tabindex="4" required></textarea>
-                    <button class="contact-submit" type="submit" tabindex="5">
-                            <span>Submit Message
-                                 <span class="arrow" style="width:15px; height:9px;">
-                                     <svg width="15" height="9">
-                                        <use xlink:href="../_include/img/arrow.svg#arrow"></use>
-                                     </svg>
-                                 </span>
-                            </span>
-                    </button>
+                <div class="contactform-item">
+                    <label for="email">Email:</label>
+                    <input name="email" id="email" placeholder="Email Address" type="email" tabindex="2" required>
                 </div>
-            </fieldset>
-        </form>
-    </main>
-</div>
+                <label for="subject">Subject:</label>
+                <input name="subject" id="subject" placeholder="Subject" type="text" tabindex="3"/>
+            </div>
+            <div id="contact-right">
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" placeholder="Message" tabindex="4" required></textarea>
+                <button class="project-view" type="submit" tabindex="5">
+                    <span>Submit Message
+                        <span class="arrow" style="width:15px; height:9px;">
+                            <svg width="15" height="9">
+                                <use xlink:href="../_include/img/arrow.svg#arrow"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</main>
 <script src="../_include/js/main.min.js"></script>
 </body>
 </html>

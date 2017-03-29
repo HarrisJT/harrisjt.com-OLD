@@ -5,11 +5,19 @@
     transform-origin: 0 0 0
 }
 
-.clearfix {
-    clear: both;
+::-moz-selection {
+    background: rgba(255, 255, 255, 0.99);
+    text-shadow: none;
+    color: #070708;
 }
 
-ol, ul {
+::selection {
+    background: rgba(255, 255, 255, 0.99);
+    text-shadow: none;
+    color: #070708;
+}
+
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -46,74 +54,44 @@ html:not(.page--case) body:before {
     background-color: #070708;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-}
-
-html:not(.page--case) .mainheader {
+.mainheader {
     width: 65%;
-    z-index: 10;
+    height: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
 }
 
 .page--case .mainheader {
     width: 100%;
 }
 
-.page--case .mainheader-left {
-    width: 50%;
-    padding: 33px 0 0 2.5%;
-}
-
-.mainheader-center {
-    float: left;
-    height: 50px;
-    padding: 54px 0 0;
-    margin-left: -53px;
-}
-
-.mainheader {
-    width: 65%;
-    z-index: 100;
-}
-
 .mainheader-left {
-    float: left;
-    padding: 33px 0 0 3.84615384615%; /* 48(padding needed to lineup with project-container) / 1248(width of header) */
-}
-
-.mainheader-right {
-    float: right;
-    text-align: right;
-    padding: 54px 3.846153846% 0 0;
-}
-
-.page--case .mainheader-right {
-    padding-right: 2.5%;
-}
-
-.mainheader-left__info {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    margin-right: 2.5%;
 }
 
 .mainheader-left__logo {
-    margin-right: 3px;
-    height: auto;
+    margin-right: 7px;
     width: 115px;
-    display: inline-block;
+}
+
+.mainheader-center {
+    margin-left: -104px;
 }
 
 .mainheader a, .mainheader h1 {
     font-size: 1.25em;
     margin: 0;
     padding: 0;
-    color: #000;
+    color: #070708;
     letter-spacing: .0275em;
     font-weight: 400;
 }
@@ -149,11 +127,10 @@ html:not(.page--case) .mainheader {
     left: 0;
     height: 2px;
     width: 100%;
-    background: #000;
+    background: #070708;
     transform-origin: right center;
     transform: scaleX(0);
-    transition: transform .3s cubic-bezier(.165, .84, .44, 1) .05s;
-
+    transition: transform 300ms cubic-bezier(.165, .84, .44, 1) 50ms;
 }
 
 .mainheader-right a:hover:after, .mainheader-center a:hover:after {
@@ -167,11 +144,11 @@ html:not(.page--case) .mainheader {
     top: 130px;
     bottom: 36px;
     background: #151416;
-    position: fixed;
+    position: absolute;
     z-index: 10;
 }
 
-html:not(.page--case) .content-container:before {
+.content-container:before {
     content: ' ';
     position: absolute;
     top: 13.1%;
@@ -179,10 +156,6 @@ html:not(.page--case) .content-container:before {
     width: 22%;
     height: 73.34%;
     background-color: #020203;
-}
-
-.page--case .content-container {
-    position: absolute;
 }
 
 /* ---------------------------------------
@@ -225,12 +198,10 @@ html:not(.page--case) .content-container:before {
     bottom: 6.1%;
     right: 3%;
     z-index: 20;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .project-container__controls a {
@@ -293,7 +264,7 @@ html:not(.page--case) .content-container:before {
     transform: translate(0);
 }
 
-.project-view {
+.page--home .project-view {
     transform: translateY(100px);
     transition: transform .7s cubic-bezier(.46, .09, .24, .99) 50ms;
 }
@@ -311,7 +282,7 @@ html:not(.page--case) .content-container:before {
     transform: translate(0);
 }
 
-.project--active .project-info {
+.project-info {
     margin-left: 8.5%;
 }
 
@@ -322,90 +293,103 @@ html:not(.page--case) .content-container:before {
     transition: transform .65s cubic-bezier(.035, .63, .375, .98) 75ms;
 }
 
-.project--active .project-view, .contact-submit, .case-view__button, .mini .project-view {
+.project-view {
     display: inline-block;
     position: relative;
     text-align: center;
     background: transparent;
-    height: 65px;
+    height: 66px;
     border: 2px solid #fff;
     width: 240px;
     padding: 0 20px 0 30px;
     font-weight: 700;
-    line-height: 64px;
+    line-height: 62px;
     font-size: 1.063em;
+    overflow: hidden;
 }
 
-.project--active .project-view:after, .mini .project-view:after, .contact-submit:after, .case-view__button:after, .case-view:after, .next-view:after, .scroll-button:after {
+footer .project-view {
+    font-size: 1.1em;
+}
+
+.project-view:hover, .scroll-button:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.project-view:after, .scroll-button:after {
     content: '';
     position: absolute;
+    border-right: 31px solid transparent;
+    border-top: 62px solid #fff;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #fff;
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform .3s cubic-bezier(.4, 0, .2, 1) .05s;
+    opacity: 0;
+    transition: transform 250ms cubic-bezier(.56, .35, .35, .65) 50ms, opacity 250ms cubic-bezier(.4, 0, .2, 1) 50ms;
 }
 
 .scroll-button:after {
+    border: none;
+    background: #fff;
     transform: scaleY(0);
     transform-origin: bottom center;
 }
 
-footer .case-view__button:after {
-    transform: scaleY(0);
-    transform-origin: top center;
+footer .project-view:after {
+    border-right: 48px solid transparent;
+    border-top: 96px solid #fff;
 }
 
-footer .case-view__button {
-    font-size: 1.1em;
-}
-
-.project--active .project-view:hover:after, .mini .project-view:hover:after, .contact-submit:hover:after, .case-view__button:hover:after, .scroll-button:hover:after, .project--active .project-view:focus:after, .contact-submit:focus:after, .case-view__button:focus:after, .scroll-button:focus:after {
-    transform: scale(1);
+.project-view:hover:after, .project-view:focus:after, .scroll-button:hover:after, .scroll-button:focus:after {
+    opacity: 1;
     transition-delay: 0s;
     z-index: -1;
 }
 
-.project--active .project-view:hover, .mini .project-view:hover, .contact-submit:hover, .case-view__button:hover, .scroll-button:hover {
-    border-bottom: 2px solid #fff;
+.project-view:hover:after, .project-view:focus:after {
+    transform: scaleX(1.16);
 }
 
-.project--active .project-view span, .mini .project-view span, .contact-submit span, .case-view__button span, .scroll-button span {
-    transition: color .15s cubic-bezier(.4, 0, .2, 1) .1s;
+.scroll-button:hover:after, .scroll-button:focus:after {
+    transform: scaleY(1);
 }
 
-.project--active .project-view:hover span, .mini .project-view:hover span, .project--active .project-view:focus span, .contact-submit:hover span, .contact-submit:focus span, .case-view__button:hover span, .case-view__button:focus span, .scroll-button:hover span, .scroll-button:focus span {
-    color: #000;
-    transition-delay: .14s;
+.project-view span, .scroll-button span, .scroll-button span, .scroll-button span {
+
 }
 
-.project--active span .arrow, .mini span .arrow, .contact-submit .arrow, .case-view__button span .arrow {
+.project-view:hover span, .project-view:focus span, .scroll-button:hover span, .scroll-button:focus span {
+    color: #070708;
+    transition: color 150ms cubic-bezier(.165, .84, .44, 1) 0ms;
+}
+
+.project-view span .arrow {
     float: right;
     position: relative;
     margin-top: 28px;
     margin-right: 9px;
-    transition: transform .2s cubic-bezier(.165, .84, .44, 1) .25s;
+    transition: transform 200ms cubic-bezier(.165, .84, .44, 1) 0ms;
 }
 
-.project--active span .arrow svg, .mini span .arrow svg, .contact-submit .arrow svg, .case-view__button .arrow svg {
+.project-view span .arrow svg {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     fill: #fff;
-    transition: fill .15s cubic-bezier(.165, .84, .44, 1) .1s;
+    transition: fill 150ms cubic-bezier(.165, .84, .44, 1) 130ms;
 }
 
-.project-view:hover .arrow svg, .project-view:focus .arrow svg, .contact-submit:hover .arrow svg, .contact-submit:focus .arrow svg, .case-view__button:hover .arrow svg, .case-view__button:focus .arrow svg {
-    fill: #000;
+.project-view:hover .arrow svg, .project-view:focus .arrow svg {
+    fill: #070708;
     transition-delay: .14s;
 }
 
-.project-view:hover .arrow, .project-view:focus .arrow, .contact-submit:hover .arrow, .contact-submit:focus .arrow, .case-view__button:hover .arrow, .case-view__button:focus .arrow {
+.project-view:hover .arrow, .project-view:focus .arrow {
     transform: translate(5px);
     transition-delay: 0s;
 }
@@ -433,7 +417,6 @@ footer .case-view__button {
     display: block;
     width: 100%;
     border-radius: 7px 7px 0 0;
-    background-clip: padding-box;
     background-color: #2e3542;
     padding: 15px;
 }
@@ -445,7 +428,7 @@ footer .case-view__button {
     position: relative;
 }
 
-.screenshot-browser .browser__buttons span {
+.browser__buttons span {
     position: absolute;
     display: block;
     width: 14px;
@@ -454,30 +437,28 @@ footer .case-view__button {
     left: 50%;
     margin-left: -5px;
     border-radius: 50%;
-    background-clip: padding-box;
     background-color: #171B1F;
 }
 
-.screenshot-browser .browser__buttons span:after, .screenshot-browser .browser__buttons span:before {
+.browser__buttons span:after, .browser__buttons span:before {
     content: "";
     position: absolute;
     display: block;
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-clip: padding-box;
     background-color: #171B1F;
 }
 
-.screenshot-browser .browser__buttons span:before {
+.browser__buttons span:before {
     left: -20px;
 }
 
-.screenshot-browser .browser__buttons span:after {
+.browser__buttons span:after {
     right: -20px;
 }
 
-.screenshot-browser .browser__bar {
+.browser__bar {
     position: relative;
     display: block;
     overflow: hidden;
@@ -486,7 +467,6 @@ footer .case-view__button {
     margin-left: 70px;
     background-color: #171B1F;
     border-radius: 4px;
-    background-clip: padding-box;
 }
 
 .browser__bar a {
@@ -503,7 +483,7 @@ footer .case-view__button {
     color: rgba(255, 255, 255, .65);
 }
 
-.browser__bar a:hover {
+.screenshot-browser a:hover {
     border: none;
 }
 
@@ -558,26 +538,21 @@ footer .case-view__button {
     width: 100%;
 }
 
-.about-experiences, .about-social {
+.page--about .content-subtitle {
     margin-bottom: 15px;
 }
 
-.about-social {
-    margin-left: 93px;
-}
-
-.about-experiences span, .case-client, .case-date, .case-services, .case-analysis .case-choice > span {
+.content-subtitle {
     padding-left: 93px;
 }
 
-.about-experiences span, .about-social span, .case-client, .case-date span, .case-services span {
+.content-subtitle span {
     font-weight: 600;
     display: block;
     margin-bottom: 12px;
 }
 
-/* TODO: maybe make this a single class? */
-.about-experiences span:before, .about-social span:before, .case-client:before, .case-date span:before, .case-services span:before, .case-analysis .case-choice > span:before {
+.content-subtitle:before {
     content: ' ';
     position: absolute;
     height: 1px;
@@ -587,20 +562,18 @@ footer .case-view__button {
     background-color: #fff;
 }
 
-.about-year, .about-position, .about-social__item, .case-services__item, .case-date__item {
+.content-subtitle div {
     display: table-cell;
-}
-
-.about-year {
-    min-width: 93px;
-}
-
-.about-position {
-    min-width: 280px;
-}
-
-.about-social__item, .case-services__item, .case-date__item {
     min-width: 195px;
+    font-weight: 400;
+}
+
+.case-analysis .content-subtitle span {
+    font-weight: 400;
+}
+
+.content-subtitle .about-year {
+    min-width: 93px;
 }
 
 .content-info br {
@@ -609,27 +582,27 @@ footer .case-view__button {
     margin-bottom: .75em;
 }
 
-.about-social__twitter:hover {
+.social-item__twitter:hover {
     border-bottom: 3px solid #1da1f2;
 }
 
-.about-social__github:hover {
+.social-item__github:hover {
     border-bottom: 3px solid #333;
 }
 
-.about-social__linkedin:hover {
+.social-item__linkedin:hover {
     border-bottom: 3px solid #0077b5;
 }
 
-.about-social__stackoverflow:hover {
+.social-item__stackoverflow:hover {
     border-bottom: 3px solid #fe7a15;
 }
 
-.about-social__behance:hover {
+.social-item__behance:hover {
     border-bottom: 3px solid #1769ff;
 }
 
-.about-social__email:hover {
+.social-item__email:hover {
     border-bottom: 3px solid #D9FB19;
 }
 
@@ -718,7 +691,7 @@ input {
     background: none;
 }
 
-.contact-submit {
+.page--contact .project-view {
     width: 255px;
     outline: none;
     cursor: pointer;
@@ -992,6 +965,7 @@ figcaption {
     opacity: 0;
     border: 2px solid #fff;
     text-align: center;
+    overflow: hidden;
     font-weight: 600;
     background: transparent;
     color: #fff;
@@ -1098,19 +1072,14 @@ footer div {
     z-index: 1;
 }
 
-.footer-next .next-view {
-    left: 0;
-    top: 0;
-}
-
-.footer-next .case-view__button {
+.footer-next .project-view {
     width: 100%;
     min-width: 380px;
     line-height: 100px;
     height: 100px;
 }
 
-.footer-next .case-view__button span .arrow {
+.footer-next .project-view span .arrow {
     margin: 46px 3.75% 0 0;
 }
 
@@ -1165,7 +1134,7 @@ footer div {
         margin-right: 4%;
     }
 
-    html:not(.page--case) .content-container:before {
+    .content-container:before {
         display: none;
     }
 
@@ -1201,32 +1170,13 @@ footer div {
         margin-bottom: 35px;
     }
 
-    .footer-next .case-view__button {
+    .footer-next .project-view {
         width: 60%;
     }
 
 }
 
 @media screen and (max-width: 985px) {
-    .mainheader-left {
-        padding-top: 19px;
-        width: 100%;
-    }
-
-    .page--case .mainheader-left {
-        width: auto;
-    }
-
-    html:not(.page--case) .mainheader-right {
-        text-align: left;
-        float: left;
-        padding: 2px 0 0 3.846153846%;
-    }
-
-    .mainheader li {
-        margin-right: 10px;
-    }
-
     /*contact & about*/
     .contactform:before, .page--about .content-info:before {
         display: none;
@@ -1256,7 +1206,7 @@ footer div {
         padding: 0 0 calc(4% + 30px);
     }
 
-    .project--active .project-info {
+    .project-info {
         margin: 0 0 20px;
         width: 100%;
     }
@@ -1327,10 +1277,6 @@ footer div {
     }
 
     /*contact*/
-    .page--contact .content-container {
-        overflow-x: hidden;
-    }
-
     .contactform {
         width: 100%;
     }
@@ -1375,20 +1321,6 @@ footer div {
 }
 
 @media screen and (max-width: 595px) {
-    .page--case .mainheader-left, .page--case .mainheader-right {
-        text-align: center;
-        float: none;
-        padding-left: 0;
-    }
-
-    .page--case .mainheader-left {
-        padding-top: 19px;
-    }
-
-    .page--case .mainheader-right {
-        padding: 2px 0 0 0;
-    }
-
     .scroll-button__bg, .scroll-button {
         display: none;
     }
@@ -1408,18 +1340,14 @@ footer div {
         display: none;
     }
 
-    html:not(.page--case) .mainheader {
+    .mainheader {
         width: 100%;
-    }
-
-    .mainheader-left, html:not(.page--case) .mainheader-right {
-        text-align: center;
-        float: none;
-        padding-left: 0;
+        justify-content: center;
+        flex-direction: column;
     }
 
     /*about*/
-    .about-social__item, .case-services__item, .case-date__item {
+    .about-social div, .page--case .content-subtitle div {
         min-width: 105px;
     }
 
@@ -1433,7 +1361,7 @@ footer div {
     }
 
     /*case*/
-    .footer-next .case-view__button {
+    .footer-next .project-view {
         min-width: 270px;
         padding: 0 5px;
         font-size: .9em;
@@ -1454,10 +1382,6 @@ footer div {
         margin: 0;
     }
 
-    .about-social span {
-        padding-left: 93px;
-    }
-
     .case-overview .content-text {
         font-size: .95em;
     }
@@ -1470,6 +1394,10 @@ footer div {
 @media screen and (max-width: 335px) {
     .mainheader-left__logo {
         display: none;
+    }
+
+    .mainheader-left__info {
+        text-align: center;
     }
 
     #message {
