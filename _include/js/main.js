@@ -10,14 +10,20 @@ const HJT = {
     }
 
     window.onload = function () {
-      // HJT.installServiceWorker();
-      // HJT.addAnalytics();
+      HJT.installServiceWorker();
+      HJT.addAnalytics();
     };
   },
 
-  addEvent: function (el, type, func) {
+  addEvent: function (el, type, func, passive) {
     if (el.attachEvent) {
-      el.attachEvent('on' + type, func);
+      if (passive) {
+        el.attachEvent('on' + type, func, { passive: true });
+      } else {
+        el.attachEvent('on' + type, func);
+      }
+    } else if (passive) {
+      el.addEventListener(type, func, { passive: true });
     } else {
       el.addEventListener(type, func);
     }
@@ -50,9 +56,9 @@ const HJT = {
     const projects = Array.from(document.querySelectorAll('.project'));
 
     if (container.addEventListener) {
-      HJT.addEvent(container, 'mousewheel', throttle(MouseWheelHandler, 1150));
-      HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1150));
-    } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1150));
+      HJT.addEvent(container, 'mousewheel', throttle(MouseWheelHandler, 1150), true);
+      HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1150), true);
+    } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1150), true);
 
     HJT.addEvent(controlNext, 'click', throttle(function () {
       HJT.removeClass(projects[0], 'project--active');

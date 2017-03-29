@@ -1,6 +1,6 @@
 'use strict';
 
-const version = 'v2.03::';
+const version = 'v2.53::';
 const staticCacheName = version + 'static';
 const pagesCacheName = version + 'pages';
 const imagesCacheName = version + 'images';
@@ -8,6 +8,7 @@ const offlinePages = [
   '/',
   '/about/',
   '/deeptunnelmke/',
+  '/mini-projects/',
   '/feelthebern/',
   '/portfolios/',
   '/technoscope/',
