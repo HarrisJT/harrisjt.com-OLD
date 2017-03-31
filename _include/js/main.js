@@ -10,8 +10,8 @@ const HJT = {
     }
 
     window.onload = function () {
-      HJT.installServiceWorker();
-      HJT.addAnalytics();
+      //HJT.installServiceWorker();
+      //HJT.addAnalytics();
     };
   },
 
