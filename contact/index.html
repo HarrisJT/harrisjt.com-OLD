@@ -18,9 +18,12 @@
     <meta name="twitter:domain" content="harrisjt.com">
     <meta name="twitter:creator" content="@harrisjt_">
     <meta name="twitter:title" content="Contact Me – Harris Thompson, Web Designer and Developer">
-    <meta name="twitter:image" content="https://harrisjt.com/_include/img/about.jpg">
+    <meta name="twitter:image" content="https://harrisjt.com/_include/img/logo.png">
     <meta name="twitter:description" content="Get in touch with me, let’s make beautiful things together.">
-    <!--TODO: FACEBOOK-->
+
+    <meta property="og:title" content="Contact Me – Harris Thompson, Web Designer and Developer"/>
+    <meta property="og:url" content="https://harrisjt.com/contact"/>
+    <meta property="og:image" content="https://harrisjt.com/_include/img/logo.png"/>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
@@ -39,7 +42,8 @@
 <body>
 <header class="mainheader">
     <div class="mainheader-left">
-        <a href="../"><img src="../_include/img/logo.svg" class="mainheader-left__logo" alt="HJT Logo" width="115px"/></a>
+        <a href="../"><img src="../_include/img/logo.svg" class="mainheader-left__logo" alt="HJT Logo"
+                           width="115px"/></a>
         <div class="mainheader-left__info">
             <a href="../"><h1>Harris<span>Thompson</span></h1>
                 <p>Web Developer</p></a>
@@ -47,16 +51,17 @@
     </div>
     <nav class="mainheader-right">
         <ul>
-            <li><a href="../"><span>Home</span></a></li>
-            <li><a href="../about/"><span>About</span></a></li>
-            <li><a href="/contact/"><span>Contact</span></a></li>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../writing/">Writing</a></li>
+            <li><a class="mainheader-right--active" href="/contact/">Contact</a></li>
         </ul>
     </nav>
 </header>
 <main class="content-container">
     <form class="contactform" accept-charset="UTF-8"
           action="https://formspree.io/harris@harrisjt.com" method="POST">
-        <h4 class="content-title">Drop me a line,</h4>
+        <h2 class="content-title">Drop me a line,</h2>
         <fieldset>
             <div id="contact-left">
                 <div class="contactform-item">

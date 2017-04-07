@@ -4,18 +4,21 @@ const HJT = {
   init: function () {
     if (document.documentElement.classList.contains('page--home')) {
       HJT.projectToggler();
-    } else if (document.documentElement.classList.contains('page--case')) {
+    } else if (document.documentElement.classList.contains('page--case') || document.documentElement.classList.contains('page--writing')) {
       HJT.scrollToTop();
       HJT.socialSharing();
+      if (document.documentElement.classList.contains('page--writing')) {
+        HJT.readingTime();
+      }
     }
 
     window.onload = function () {
-      //HJT.installServiceWorker();
-      //HJT.addAnalytics();
+      HJT.installServiceWorker();
+      HJT.addAnalytics();
     };
   },
 
-  addEvent: function (el, type, func, passive) {
+  addEvent: function (el, type, func, passive = false) {
     if (el.attachEvent) {
       if (passive) {
         el.attachEvent('on' + type, func, { passive: true });
@@ -55,10 +58,11 @@ const HJT = {
     const progressLine = document.getElementById('progress-line');
     const projects = Array.from(document.querySelectorAll('.project'));
 
+
     if (container.addEventListener) {
-      HJT.addEvent(container, 'mousewheel', throttle(MouseWheelHandler, 1150), true);
-      HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1150), true);
-    } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1150), true);
+      HJT.addEvent(container, 'mousewheel', throttle(MouseWheelHandler, 1000), true);
+      HJT.addEvent(container, 'DOMMouseScroll', throttle(MouseWheelHandler, 1000), true);
+    } else HJT.addEvent(container, 'onmousewheel', throttle(MouseWheelHandler, 1000), true);
 
     HJT.addEvent(controlNext, 'click', throttle(function () {
       HJT.removeClass(projects[0], 'project--active');
@@ -89,6 +93,73 @@ const HJT = {
 
       HJT.updatePagination(projects[0], numberPrevious, progressLine);
     }
+
+    let touchVars = {
+      touchStartX: 0,
+      touchMoveX: 0,
+      touchStarted: false,
+    };
+
+    HJT.addEvent(container, 'touchstart', touchStart, true);
+    HJT.addEvent(container, 'touchmove', touchMove, true);
+    HJT.addEvent(container, 'touchend', touchEnd, true);
+
+    function touchStart(e) {
+      e.stopPropagation();
+      if (!touchVars.touchStarted) {
+        touchVars.touchStarted = true;
+        let touch = e.changedTouches[0];
+        touchVars.touchStartX = touch.clientX;
+      }
+    }
+
+    function touchMove(e) {
+      e.stopPropagation();
+      let touch = e.changedTouches[0];
+      touchVars.touchMoveX = touch.clientX;
+    }
+
+    function touchEnd() {
+      const diff = Math.abs(touchVars.touchStartX - touchVars.touchMoveX);
+      if (diff > 50 && touchVars.touchMoveX !== 0) {
+        if (touchVars.touchMoveX > touchVars.touchStartX) {
+          // swipe right
+          HJT.removeClass(projects[0], 'project--active');
+          projects.unshift(projects.splice(projects.length - 1, 1)[0]);
+          HJT.addClass(projects[0], 'project--active');
+        } else {
+          // swipe left
+          HJT.removeClass(projects[0], 'project--active');
+          projects.push(projects.splice(0, 1)[0]);
+          HJT.addClass(projects[0], 'project--active');
+        }
+
+        HJT.updatePagination(projects[0], numberPrevious, progressLine);
+        touchVars.touchStarted = false;
+        touchVars.touchMoveX = 0;
+      }
+    }
+  },
+
+  readingTime: function () {
+    const article = document.querySelector('.article');
+
+    function getText(el) {
+      let text = '';
+      const length = el.childNodes.length;
+      for (let i = 0; i < length; i++) {
+        const node = el.childNodes[i];
+        if (node.nodeType !== 8) {
+          text += node.nodeType !== 1 ? node.nodeValue : getText(node);
+        }
+      }
+
+      return text;
+    }
+
+    const readTime = Math.ceil((getText(article).split(/\s+/).length / 150));
+    document.querySelector('.article__read-time').textContent = `${readTime} MIN READ`;
+
   },
 
   scrollToTop: function () {
@@ -132,7 +203,7 @@ const HJT = {
     });
 
     HJT.addEvent(document, 'scroll', function () {
-      if (window.pageYOffset > 1100) {
+      if (window.pageYOffset > 900) {
         HJT.addClass(scrollButton, 'scroll-button--active');
         HJT.addClass(scrollButtonBg, 'scroll-button__bg--active');
       } else {
@@ -144,12 +215,23 @@ const HJT = {
 
   socialSharing: function () {
     const twitterButton = document.querySelector('.social-buttons__twitter');
+    const facebookButton = document.querySelector('.social-buttons__facebook');
     const linkedinButton = document.querySelector('.social-buttons__linkedin');
     const twitter = {
       shareUrl: 'https://twitter.com/intent/tweet/',
       params: {
         text: document.title,
         url: window.location.href,
+      },
+    };
+    const facebook = {
+      shareUrl: 'https://www.facebook.com/dialog/share',
+      params: {
+        app_id: '146038212592206',
+        href: window.location.href,
+        display: 'popup',
+        redirect_uri: 'https://harrisjt.com',
+        quote: document.title,
       },
     };
     const linkedin = {
@@ -189,6 +271,10 @@ const HJT = {
 
     HJT.addEvent(twitterButton, 'click', function () {
       buildWindow(twitter);
+    });
+
+    HJT.addEvent(facebookButton, 'click', function () {
+      buildWindow(facebook);
     });
 
     HJT.addEvent(linkedinButton, 'click', function () {
