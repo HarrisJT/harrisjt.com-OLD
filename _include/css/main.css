@@ -274,7 +274,7 @@ body {
 }
 
 .page--home .project-view {
-    transform: translate3d(0,100px,0);
+    transform: translateY(100px);
     transition: transform 700ms cubic-bezier(.46, .09, .24, .99) 50ms;
 }
 
@@ -283,7 +283,7 @@ body {
 }
 
 .project-year {
-    transform: translate3d(0,-80px,0);
+    transform: translateX(-80px);
     transition: transform 650ms cubic-bezier(.84, .24, .24, .9);
 }
 
@@ -298,7 +298,7 @@ body {
 .project-title {
     font: 4.25em 'Abril Fatface', Georgia, serif;
     margin: 0 0 40px;
-    transform: translate3d(165px,0,0);
+    transform: translateX(165px);
     transition: transform 650ms cubic-bezier(.035, .63, .375, .98) 75ms;
 }
 
@@ -400,7 +400,7 @@ footer .project-view:after {
 }
 
 .project-view:hover .arrow, .project-view:focus .arrow {
-    transform: translate3d(5px,0,0);
+    transform: translateX(5px);
     transition-delay: 0s;
 }
 
