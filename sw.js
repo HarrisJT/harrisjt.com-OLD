@@ -1,16 +1,16 @@
 'use strict';
 
-const version = 'v3.01::';
+const version = 'v3.25::';
 const staticCacheName = version + 'static';
 const pagesCacheName = version + 'pages';
 const imagesCacheName = version + 'images';
 const offlinePages = [
   '/',
   '/about/',
-  '/deeptunnelmke/',
-  '/mini-projects/',
+  '/weblaunchchecklist/',
   '/feelthebern/',
   '/portfolios/',
+  '/mini-projects/',
   '/technoscope/',
 
 ];
@@ -24,12 +24,11 @@ function updateStaticCache() {
       '/_include/img/arrow.svg',
       '/_include/img/logo.svg',
       '/about/',
+      '/weblaunchchecklist/',
       '/portfolios/',
-      '/contact/',
       '/writing/',
       '/mini-projects/',
       '/feelthebern/',
-      '/deeptunnelmke/',
       '/technoscope/',
       '/offline.html',
       '/404.html',

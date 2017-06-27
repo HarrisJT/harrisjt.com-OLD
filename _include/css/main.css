@@ -6,13 +6,13 @@
 }
 
 ::-moz-selection {
-    background: rgba(255, 255, 255, 0.99);
+    background: rgba(255, 255, 255, 0.75);
     text-shadow: none;
     color: #070708;
 }
 
 ::selection {
-    background: rgba(255, 255, 255, 0.99);
+    background: rgba(255, 255, 255, 0.75);
     text-shadow: none;
     color: #070708;
 }
@@ -274,7 +274,7 @@ body {
 }
 
 .page--home .project-view {
-    transform: translateY(100px);
+    transform: translate3d(0,100px,0);
     transition: transform 700ms cubic-bezier(.46, .09, .24, .99) 50ms;
 }
 
@@ -283,7 +283,7 @@ body {
 }
 
 .project-year {
-    transform: translateY(-80px);
+    transform: translate3d(0,-80px,0);
     transition: transform 650ms cubic-bezier(.84, .24, .24, .9);
 }
 
@@ -296,9 +296,9 @@ body {
 }
 
 .project-title {
-    font: 5em 'Abril Fatface', Georgia, serif;
+    font: 4.25em 'Abril Fatface', Georgia, serif;
     margin: 0 0 40px;
-    transform: translateX(165px);
+    transform: translate3d(165px,0,0);
     transition: transform 650ms cubic-bezier(.035, .63, .375, .98) 75ms;
 }
 
@@ -400,7 +400,7 @@ footer .project-view:after {
 }
 
 .project-view:hover .arrow, .project-view:focus .arrow {
-    transform: translate(5px);
+    transform: translate3d(5px,0,0);
     transition-delay: 0s;
 }
 
@@ -619,114 +619,31 @@ footer .project-view:after {
 }
 
 /* ---------------------------------------
-   Contact.
-   --------------------------------------- */
-
-.page--contact .content-container {
-    overflow-y: auto;
-}
-
-.contactform {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 60%;
-    margin-left: 8.5%;
-    height: 100%;
-}
-
-.contactform:before {
-    content: 'dear';
-    font-size: 27em;
-    font-weight: 800;
-    color: #1a1b1d;
-    position: absolute;
-    left: -22%;
-    top: 4%;
-    z-index: -1;
-}
-
-fieldset {
-    border: none;
-    margin: 0;
-    padding: 0;
-    text-align: left
-}
-
-#contact-left, #contact-right {
-    float: left;
-    width: 28%;
-    font-size: 1.063em;
-}
-
-#contact-right {
-    margin-left: 6%;
-    width: 63%;
-}
-
-label {
-    font-weight: 600;
-}
-
-textarea {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 25px;
-    background: linear-gradient(to right, transparent 14px, transparent 14px),
-    linear-gradient(to left, transparent 14px, transparent 14px),
-    repeating-linear-gradient(transparent, transparent 30px, #ccc 32px, #ccc 32px, transparent 32px) local;
-    line-height: 32px;
-    min-height: 280px;
-    resize: vertical;
-}
-
-textarea, input {
-    border: none;
-    outline: none;
-    color: #fcfcfc;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 1.25em;
-    width: 100%;
-}
-
-input {
-    border-bottom: 2px solid #ccc;
-    padding: 14px 0 7px;
-    margin-top: 0;
-    margin-bottom: 38px;
-    background: none;
-}
-
-.page--contact .project-view {
-    width: 255px;
-    outline: none;
-    cursor: pointer;
-    color: #fff;
-}
-
-/* ---------------------------------------
    Case Studies.
    --------------------------------------- */
 
-.port .content-info:before {
+.wlc .content-info:before {
     content: '01';
 }
 
-.ftb .content-info:before {
+.port .content-info:before {
     content: '02';
 }
 
-.mini .content-info:before {
+.ftb .content-info:before {
     content: '03';
 }
 
-.dtm .content-info:before {
+.mini .content-info:before {
     content: '04';
 }
 
-.tech .content-info:before {
+.dtm .content-info:before {
     content: '05';
+}
+
+.tech .content-info:before {
+    content: '06';
 }
 
 .page--case:before {
@@ -756,12 +673,6 @@ input {
 
 .page--case .content-overview {
     min-height: 784px;
-}
-
-.case-view {
-    position: absolute;
-    margin-top: -65px;
-    margin-left: 275px;
 }
 
 .case-analysis {
@@ -1429,7 +1340,7 @@ footer div {
 @media screen and (max-width: 1090px) {
     /*homepage*/
     .project-title {
-        font-size: 3.5em;
+        font-size: 2.25em;
     }
 
     .project-screenshot {
@@ -1443,11 +1354,6 @@ footer div {
     /*about*/
     .about-photo {
         display: none;
-    }
-
-    /*contact*/
-    .contactform {
-        width: 85%;
     }
 
     /*case*/
@@ -1485,7 +1391,7 @@ footer div {
 
 @media screen and (max-width: 985px) {
     /*contact & about*/
-    .contactform:before, .page--about .content-info:before {
+    .page--about .content-info:before {
         display: none;
     }
 
@@ -1583,37 +1489,6 @@ footer div {
         font-size: calc(5vw + 18px);
     }
 
-    /*contact*/
-    .contactform {
-        width: 100%;
-    }
-
-    #contact-left, #contact-right {
-        float: none;
-        width: 83%;
-        margin: 0;
-    }
-
-    .contactform-item {
-        display: inline-block;
-        width: 45%;
-    }
-
-    .contactform-item:first-of-type {
-        margin-right: 6%;
-    }
-
-    input {
-        margin-bottom: 19px;
-    }
-
-    #subject, label[for=subject] {
-        display: none;
-    }
-
-    textarea {
-        margin: 10px 0 12px 0;
-    }
 
     /*case*/
     .case-choice .font-infographic {
@@ -1659,9 +1534,6 @@ footer div {
         display: none;
     }
 
-    .case-view {
-        display: none;
-    }
 
     .content-info:before {
         display: none;
@@ -1685,14 +1557,6 @@ footer div {
         min-width: 105px;
     }
 
-    /*contact*/
-    textarea, input {
-        font-size: 1.063em;
-    }
-
-    #message {
-        min-height: 175px;
-    }
 
     /*case*/
     .footer-next .project-view {

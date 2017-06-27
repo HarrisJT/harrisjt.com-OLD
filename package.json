@@ -1,6 +1,6 @@
 {
   "name": "HarrisJT",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "My personal portfolio",
   "main": "gulpfile.js",
   "scripts": {
@@ -19,12 +19,16 @@
   "author": "Harris J Thompson",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-babili": "0.0.12",
+    "babel-preset-babili": "^0.1.4",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^3.0.4",
+    "gulp-clean-css": "^3.4.2",
     "gulp-concat": "^2.6.1",
     "gulp-csscomb": "^3.0.8"
+  },
+  "dependencies": {
+    "babel-helper-evaluate-path": "^0.1.0",
+    "babel-plugin-transform-minify-booleans": "^6.8.2"
   }
 }

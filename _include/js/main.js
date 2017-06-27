@@ -47,7 +47,7 @@ const HJT = {
 
   updatePagination: function (el, number, line) {
     number.innerText = el.getAttribute('data-project-number');
-    line.style.height = `${parseInt(el.getAttribute('data-project-number')) * 20}%`;
+    line.style.height = `${parseInt(el.getAttribute('data-project-number')) / document.querySelectorAll('.project').length * 100}%`;
   },
 
   projectToggler: function () {
@@ -188,7 +188,7 @@ const HJT = {
       function tick() {
         currentTime += 1 / 60;
 
-        const p = currentTime / 1.25; // 1.25 is animation time in seconds
+        const p = currentTime / 1.1; // 1.1 is animation time in seconds
         const t = ease(p);
 
         if (p < 1) {
